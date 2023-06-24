@@ -1,73 +1,829 @@
 {"intents": [
-    {"tag": "greeting",
-     "patterns": ["Hi there", "How are you", "Is anyone there?","Hey","Hola", "Hello", "Good day"],
-     "responses": ["Hello, thanks for asking", "Good to see you again", "Hi there, how can I help?"],
+    {
+    "tag": "def",
+    "patterns": ["", " ","Qu'est-ce que cela signifie ?", "Pouvez-vous me donner une definition ?", "Expliquez-moi cette expression."],
+    "responses": ["Je ne comprends pas. Pouvez-vous reformuler votre question, s'il vous plait?"],
+    "context": [""]
+    },
+    {"tag": "bonjour",
+     "patterns": ["Comment ca va ?","bonjour", "salut", "hello","cv","hi","bjr","slt","Hi there", "How are you", "Is anyone there?","Hey","Hola", "Hello", "Good day","start"],
+     "responses": ["Bonjour, bienvenu a notre plateforme d'apprentissage, comment puis-je vous aider ?"],
      "context": [""]
     },
     {"tag": "goodbye",
-     "patterns": ["Bye", "See you later", "Goodbye", "Nice chatting to you, bye", "Till next time"],
-     "responses": ["See you!", "Have a nice day", "Bye! Come back again soon."],
+     "patterns": ["Au revoir", "Bonne journee", "a bientot", "Je dois partir", "a la prochaine","quitter", "quitte","bye","by","quit","Bye", "See you later", "Goodbye", "Nice chatting to you, bye", "Till next time","Au revoir", "Bonne journee", "a bientot", "a la prochaine"],
+     "responses": ["Merci de votre visite","Au revoir", "Bonne journee", "a bientot", "a la prochaine"],
      "context": [""]
     },
     {"tag": "thanks",
-     "patterns": ["Thanks", "Thank you", "That's helpful", "Awesome, thanks", "Thanks for helping me"],
-     "responses": ["Happy to help!", "Any time!", "My pleasure"],
+     "patterns": ["Tu as ete tres utile", "Je te suis reconnaissant", "merci", "Merci","thanx","thank you","thx","bien","c'est parfait","Thanks", "Thank you", "That's helpful", "Awesome, thanks", "Thanks for helping me","C'est gentil", "Je suis reconnaissant(e)", "Merci beaucoup"],
+     "responses": ["Je suis ravi d'avoir pu t'aider ! N'hesite pas si tu as besoin de plus d'assistance.","Pas de soucis, c'est mon travail."],
      "context": [""]
     },
-    {"tag": "noanswer",
-     "patterns": [],
-     "responses": ["Sorry, can't understand you", "Please give me more info", "Not sure I understand"],
+    {"tag": "apologies",
+     "patterns": ["Desole", "Excusez-moi", "Je m'excuse","sorry","i am sorry"],
+     "responses": ["Pas de probleme ! Tout le monde fait des erreurs."],
      "context": [""]
     },
-    {"tag": "options",
-     "patterns": ["How you could help me?", "What you can do?", "What help you provide?", "How you can be helpful?", "What support is offered"],
-     "responses": ["I can guide you through Adverse drug reaction list, Blood pressure tracking, Hospitals and Pharmacies", "Offering support for Adverse drug reaction, Blood pressure, Hospitals and Pharmacies"],
+    {"tag": "no",
+     "patterns": ["Non", "Desole, je ne peux pas", "Pas possible","no"],
+     "responses": ["Pas de probleme ! Tout le monde fait des erreurs."],
      "context": [""]
     },
-    {"tag": "adverse_drug",
-     "patterns": ["How to check Adverse drug reaction?", "Open adverse drugs module", "Give me a list of drugs causing adverse behavior", "List all drugs suitable for patient with adverse reaction", "Which drugs dont have adverse reaction?" ],
-     "responses": ["Navigating to Adverse drug reaction module"],
+    {"tag": "yes",
+     "patterns": ["yes","Oui", "Bien sur", "Absolument"],
+     "responses": ["D'accord ! Que puis-je faire pour toi ?"],
      "context": [""]
     },
-    {"tag": "blood_pressure",
-     "patterns": ["Open blood pressure module", "Task related to blood pressure", "Blood pressure data entry", "I want to log blood pressure results", "Blood pressure data management" ],
-     "responses": ["Navigating to Blood Pressure module"],
+    {"tag": "questions",
+     "patterns": ["question","Je peux te poser une question ?", "J'ai une question"],
+     "responses": ["Bien sur ! Je suis la pour repondre a tes questions. Vas-y !"],
      "context": [""]
     },
-    {"tag": "blood_pressure_search",
-     "patterns": ["I want to search for blood pressure result history", "Blood pressure for patient", "Load patient blood pressure result", "Show blood pressure results for patient", "Find blood pressure results by ID" ],
-     "responses": ["Please provide Patient ID", "Patient ID?"],
-     "context": ["search_blood_pressure_by_patient_id"]
-    },
-    {"tag": "search_blood_pressure_by_patient_id",
-     "patterns": [],
-     "responses": ["Loading Blood pressure result for Patient"],
+    {"tag": "intro",
+     "patterns": ["Parle-moi de toi", "Qui es-tu ?", "Qu'est-ce que tu fais ?"],
+     "responses": ["Je suis un chatbot concu pour t'aider a apprendre le francais. Pose-moi des questions ou demande-moi de l'aide !"],
      "context": [""]
     },
-    {"tag": "pharmacy_search",
-     "patterns": ["Find me a pharmacy", "Find pharmacy", "List of pharmacies nearby", "Locate pharmacy", "Search pharmacy" ],
-     "responses": ["Please provide pharmacy name"],
-     "context": ["search_pharmacy_by_name"]
+    {
+    "tag": "greetings",
+    "patterns": ["Comment allez-vous ?", "Comment ca va aujourd'hui ?","cv","ca va","cava","ca va", "ca va bien ?", "Comment s'est passee votre journee ?", "Quoi de neuf ?"],
+    "responses": ["Je suis un chatbot, donc je ne ressens pas d'emotions, mais je suis la pour vous aider ! Comment puis-je vous assister aujourd'hui ?"],
+    "context": [""]
     },
-    {"tag": "search_pharmacy_by_name",
-     "patterns": [],
-     "responses": ["Loading pharmacy details"],
+    {
+    "tag": "name",
+    "patterns": ["Comment vous appelez-vous ?", "Quel est votre nom ?", "Je voudrais connaitre votre nom."],
+    "responses": ["Je suis un chatbot concu pour vous aider a apprendre le francais. Vous pouvez m'appeler FrenchBot !"],
+    "context": [""]
+    },
+    {
+    "tag": "age",
+    "patterns": ["Quel age avez-vous ?", "Depuis combien de temps existez-vous ?", "etes-vous vieux ou jeune ?"],
+    "responses": ["En tant que chatbot, je suis intemporel ! Je suis la pour vous aider, peu importe votre age !"],
+    "context": [""]
+    },
+    {
+    "tag": "language",
+    "patterns": ["Quelles langues parlez-vous ?", "Pouvez-vous communiquer dans d'autres langues ?", "etes-vous multilingue ?"],
+    "responses": ["Je suis programme pour communiquer en francais, mais je peux comprendre et repondre dans d'autres langues egalement."],
+    "context": [""]
+    },
+    {
+    "tag": "help",
+    "patterns": ["aide","Besoin d'aide", "Je suis perdu","J'ai besoin d'aide", "Pouvez-vous m'aider ?", "Je ne comprends pas cette lecon"],
+    "responses": ["Bien sur ! Je suis la pour vous aider. Quelle est la difficulte a laquelle vous etes confronte(e) ?"],
+    "context": [""]
+    },
+    {
+      "tag": "time",
+      "patterns": ["Quelle heure est-il ?", "Quel est le moment ?", "Quelle est la date ?", "Quel jour sommes-nous ?", "Quel jour de la semaine est-ce ?"],
+      "responses": ["Je suis desole, en tant que chatbot, je n'ai pas acces a l'heure actuelle ou a la date. Veuillez verifier sur votre appareil ou sur Internet pour connaitre l'heure et la date exactes."],
+      "context": [""]
+    },
+    {
+        "tag": "colors",
+        "patterns": ["Quelles sont les couleurs en francais ?", "Comment dit-on 'rouge' en francais ?", "Pouvez-vous me donner une liste de couleurs en francais ?"],
+        "responses": ["Voici quelques couleurs en francais : <br>- rouge (red)<br>- bleu (blue)<br>- vert (green)<br>- jaune (yellow)<br>- orange (orange)<br>- violet (purple)<br>- rose (pink)<br>- gris (gray)<br>- noir (black)<br>- blanc (white)."],
+        "context": [""]
+    },
+    {
+        "tag": "family",
+        "patterns": ["Parlez-moi de la famille en francais", "Quels sont les mots pour 'mere', 'pere', 'frere' et 'soeur' en francais ?", "Comment dit-on 'grand-mere' et 'grand-pere' en francais ?"],
+        "responses": ["En francais:<br>- 'mere' se dit 'mother'<br>- 'pere' se dit 'father'<br>- 'frere' se dit 'brother'<br>- 'soeur' se dit 'sister'<br>- 'Grand-mere' se dit 'grandmother'<br>- 'grand-pere' se dit 'grandfather'."],
+        "context": [""]
+    },
+    {
+        "tag": "time",
+        "patterns": ["Comment dit-on 'heure' en francais ?", "Pouvez-vous m'expliquer comment dire l'heure en francais ?", "Quels sont les mots pour 'minute' et 'seconde' en francais ?"],
+        "responses": ["En francais;<br>- 'heure' se dit 'hour'<br>Pour dire l'heure, on utilise les mots 'heure', 'minute' et 'seconde'.<br>Par exemple, 'Il est trois heures et vingt minutes'."],
+        "context": [""]
+    },
+    {
+        "tag": "weather",
+        "patterns": ["Quel temps fait-il aujourd'hui ?", "Pouvez-vous me donner des mots pour decrire la meteo en francais ?", "Comment dit-on 'soleil' et 'pluie' en francais ?"],
+        "responses": ["En francais:<br>- 'soleil' se dit 'sun' et 'pluie' se dit 'rain'.<br>Pour decrire la meteo, on utilise des mots comme:<br>- 'ensoleille' (sunny)<br>- 'nuageux' (cloudy)<br>- 'pluvieux' (rainy)<br>- 'venteux' (windy)<br>- 'neigeux' (snowy)."],
+        "context": [""]
+    },
+    {
+        "tag": "food",
+        "patterns": ["Quels sont les plats traditionnels francais ?", "Pouvez-vous me donner des noms de plats francais ?", "Qu'est-ce que je devrais essayer lors d'un voyage en France ?"],
+        "responses": ["La cuisine francaise est celebre dans le monde entier. Voici quelques plats traditionnels francais : <br>croissant, baguette, quiche, ratatouille, coq au vin, escargots, boeuf bourguignon, creme brulee. <br><br>Lors de votre voyage en France, vous devriez essayer ces plats pour decouvrir la gastronomie francaise !"],
+        "context": [""]
+    },
+    {
+        "tag": "countries",
+        "patterns": ["Quels sont les pays francophones ?", "Pouvez-vous me donner une liste de pays où l'on parle francais ?", "Dans quels pays puis-je pratiquer ma langue francaise ?"],
+        "responses": ["Il y a de nombreux pays où l'on parle francais. Voici quelques exemples de pays francophones : <br>la France, le Canada, la Belgique, la Suisse, le Luxembourg, le Maroc, la Cote d'Ivoire, le Senegal, le Quebec. <br><br>Vous pouvez pratiquer votre francais dans ces pays et decouvrir leurs cultures uniques !"],
+        "context": [""]
+    },
+    {
+        "tag": "hobbies",
+        "patterns": ["Quels sont les passe-temps populaires en France ?", "Pouvez-vous me donner des exemples de loisirs en francais ?", "Qu'est-ce que les Francais aiment faire pendant leur temps libre ?"],
+        "responses": ["Les Francais ont divers passe-temps et loisirs. Certains exemples de loisirs populaires en France sont : <br>jouer au football, faire du velo, lire des livres, regarder des films, cuisiner, ecouter de la musique, visiter des musees, se promener dans les parcs, faire du shopping. <br><br>Les Francais apprecient egalement les activites culturelles et artistiques."],
+        "context": [""]
+    },
+    {
+        "tag": "numbers",
+        "patterns": ["Pouvez-vous me donner les nombres en francais ?", "Comment dit-on 'un', 'deux', 'trois' en francais ?", "Quels sont les mots pour 'cent' et 'mille' en francais ?"],
+        "responses": ["Voici les nombres en francais : <br>1 - un (one), 2 - deux (two), 3 - trois (three), 4 - quatre (four), 5 - cinq (five), 6 - six (six), 7 - sept (seven), 8 - huit (eight), 9 - neuf (nine), 10 - dix (ten), 100 - cent (hundred), 1000 - mille (thousand)."],
+        "context": [""]
+    },
+    {
+        "tag": "directions",
+        "patterns": ["Comment demander des indications en francais ?", "Pouvez-vous m'expliquer comment dire 'gauche', 'droite', 'tout droit' en francais ?", "Quels sont les mots pour 'rue', 'avenue' et 'place' en francais ?"],
+        "responses": ["Pour demander des indications en francais:<br>vous pouvez dire 'Excusez-moi, pouvez-vous m'indiquer le chemin vers... ?' <br><br>En ce qui concerne les directions: <br>'gauche' se dit 'left', 'droite' se dit 'right' et 'tout droit' se dit 'straight'. <br>'Rue' se traduit par 'street', 'avenue' se traduit par 'avenue' et 'place' se traduit par 'square'."],
+        "context": [""]
+    },
+    {
+        "tag": "jobs",
+        "patterns": ["Quels sont les mots pour les professions en francais ?", "Pouvez-vous me donner des exemples de metiers en francais ?", "Comment dit-on 'medecin', 'enseignant' et 'ingenieur' en francais ?"],
+        "responses": ["Voici quelques mots pour les professions en francais : <br>medecin (doctor), enseignant (teacher), ingenieur (engineer), avocat (lawyer), artiste (artist), acteur (actor), musicien (musician), cuisinier (cook), pilote (pilot), infirmier (nurse)."],
+        "context": [""]
+    },
+    {
+        "tag": "travel",
+        "patterns": ["Comment dire 'avion', 'train' et 'bus' en francais ?", "Pouvez-vous me donner des mots lies aux voyages en francais ?", "Quels sont les mots pour 'aeroport', 'gare' et 'station de bus' en francais ?"],
+        "responses": ["En francais, 'avion' se dit 'plane', 'train' se dit 'train' et 'bus' se dit 'bus'. <br>Pour les mots lies aux voyages, 'aeroport' se dit 'airport', 'gare' se dit 'train station' et 'station de bus' se dit 'bus station'."],
+        "context": [""]
+    },
+    {
+        "tag": "sports",
+        "patterns": ["Quels sont les sports populaires en France ?", "Pouvez-vous me donner des exemples de sports en francais ?", "Comment dit-on 'football', 'tennis' et 'basketball' en francais ?"],
+        "responses": ["En France, les sports populaires sont: <br>le football, le tennis, le rugby, le cyclisme, la natation, le basketball, le handball, le volley-ball, l'equitation, la petanque. <br>'Football' se dit 'football', 'tennis' se dit 'tennis' et 'basketball' se dit 'basket' en francais."],
+        "context": [""]
+    },
+    {
+      "tag": "favorite_food",
+      "patterns": ["Quel est votre plat prefere ?", "Qu'aimez-vous manger ?", "Quels sont vos gouts culinaires ?"],
+      "responses": ["En tant que chatbot, je n'ai pas de preferences culinaires. Mais j'apprecie la diversite et l'experience de differents types de cuisine !"],
+      "context": [""]
+    },
+    {
+      "tag": "francophone_countries",
+      "patterns": ["Quels pays sont des pays francophones ?", "Où parle-t-on francais ?", "Quels sont les pays où le francais est une langue officielle ?"],
+      "responses": ["Les pays francophones comprennent:<br>la France, le Canada, la Belgique, la Suisse, le Luxembourg, certains pays d'Afrique francophone comme le Senegal et la Cote d'Ivoire, et d'autres. Le francais est egalement largement parle dans de nombreux autres pays en tant que langue etrangere. C'est une langue tres repandue a travers le monde !"],
+      "context": [""]
+    },
+    {
+        "tag": "clothing",
+        "patterns": ["Quels sont les mots pour les vetements en francais ?", "Pouvez-vous me donner des exemples de vetements en francais ?", "Comment dit-on 'chemise', 'pantalon' et 'chaussures' en francais ?"],
+        "responses": ["Voici quelques mots pour les vetements en francais : <br>chemise (shirt), pantalon (pants/trousers), chaussures (shoes), robe (dress), jupe (skirt), veste (jacket), chapeau (hat), echarpe (scarf), gants (gloves), chaussettes (socks)."],
+        "context": [""]
+    },
+    {
+        "tag": "emotions",
+        "patterns": ["emotions","les emotions en francais","Comment exprimer les emotions en francais ?", "Pouvez-vous me donner des mots pour les emotions en francais ?", "Quels sont les mots pour 'heureux', 'triste' et 'effraye' en francais ?"],
+        "responses": ["Pour exprimer les emotions en francais, voici quelques mots : <br>heureux (happy), triste (sad), en colere (angry), excite (excited), effraye (scared), surpris (surprised), decu (disappointed), amoureux (in love), nerveux (nervous), fatigue (tired)."],
+        "context": [""]
+    },
+    {
+        "tag": "music",
+        "patterns": ["musique","musique en francais","les genres musicaux","Quels sont les genres musicaux populaires en France ?", "Pouvez-vous me donner des exemples de musique en francais ?", "Comment dit-on 'chanson', 'rock' et 'pop' en francais ?","Quels sont les genres musicaux en francais ?", "Pouvez-vous me donner des exemples de musique en francais ?", "Comment dit-on 'chanson', 'rock' et 'pop' en francais ?"],
+        "responses": ["En France, les genres musicaux populaires sont: <br>la chanson francaise, le rock, la pop, le rap, l'electro, le jazz, la musique classique. 'Chanson' se dit 'song', 'rock' se dit 'rock' et 'pop' se dit 'pop' en francais.","En francais, il y a differents genres musicaux : chanson (song), rock (rock), pop (pop), jazz (jazz), rap (rap), classique (classical), reggae (reggae), country (country), folk (folk), electro (electronic)."],
+        "context": [""]
+    },
+    {
+        "tag": "technology",
+        "patterns": ["technologie","les appareils technologiques","Quels sont les mots pour les appareils technologiques en francais ?", "Quels sont les mots lies a la technologie en francais ?", "Pouvez-vous me donner des exemples de termes technologiques en francais ?", "Comment dit-on 'ordinateur', 'telephone' et 'internet' en francais ?"],
+        "responses": ["Voici quelques mots lies a la technologie en francais : <br>ordinateur (computer), telephone (phone), internet (internet), application (app), reseau social (social media), ecran (screen), clavier (keyboard), souris (mouse), wifi (wifi), sauvegarder (to save)."],
+        "context": [""]
+    },
+    {
+        "tag": "nature",
+        "patterns": ["nature","Parlez-moi de la nature en francais", "Quels sont les mots pour 'arbre', 'fleur' et 'montagne' en francais ?", "Comment dit-on 'lac' et 'riviere' en francais ?"],
+        "responses": ["En francais, 'arbre' se dit 'tree', 'fleur' se dit 'flower', 'montagne' se dit 'mountain'. 'Lac' se traduit par 'lake' et 'riviere' se traduit par 'river'. <br>La nature est magnifique et diversifiee en francais !"],
+        "context": [""]
+    },
+    {
+        "tag": "movies",
+        "patterns": ["Quels sont les genres de films populaires en francais ?", "Pouvez-vous me donner des exemples de films en francais ?", "Comment dit-on 'comedie', 'drame' et 'science-fiction' en francais ?"],
+        "responses": ["En francais, les genres de films populaires sont la comedie, le drame, le thriller, la science-fiction, le documentaire, le film d'animation, l'action. 'Comedie' se dit 'comedy', 'drame' se dit 'drama' et 'science-fiction' se dit 'science fiction' en francais."],
+        "context": [""]
+    },
+    {
+        "tag": "weather",
+        "patterns": ["Comment demander la meteo en francais ?", "Pouvez-vous m'expliquer comment dire 'soleil', 'pluie' et 'nuage' en francais ?", "Quels sont les mots pour 'temperature', 'vent' et 'neige' en francais ?"],
+        "responses": ["Pour demander la meteo en francais, vous pouvez dire 'Quel temps fait-il aujourd'hui ?', 'Quelle est la meteo pour demain ?' En ce qui concerne les termes meteorologiques, 'soleil' se dit 'sun', 'pluie' se dit 'rain' et 'nuage' se dit 'cloud'. 'Temperature' se traduit par 'temperature', 'vent' se traduit par 'wind' et 'neige' se traduit par 'snow'."],
+        "context": [""]
+    },
+    {
+        "tag": "history",
+        "patterns": ["Parlez-moi de l'histoire de la France", "Quels sont les mots pour les periodes historiques en francais ?", "Comment dit-on 'Renaissance', 'Revolution francaise' et 'Seconde Guerre mondiale' en francais ?"],
+        "responses": ["L'histoire de la France est riche et complexe. Quelques periodes historiques en francais sont la Renaissance, la Revolution francaise, la Belle epoque, la Premiere Guerre mondiale, la Seconde Guerre mondiale. 'Renaissance' se dit 'Renaissance', 'Revolution francaise' se dit 'French Revolution' et 'Seconde Guerre mondiale' se dit 'World War II' en francais."],
+        "context": [""]
+    },
+    {
+        "tag": "art",
+        "patterns": ["Quels sont les types d'art populaires en France ?", "Pouvez-vous me donner des exemples d'artistes francais ?", "Comment dit-on 'peinture', 'sculpture' et 'photographie' en francais ?"],
+        "responses": ["En France, les types d'art populaires sont la peinture, la sculpture, la photographie, l'architecture, la musique. Quelques artistes francais connus sont Claude Monet, Auguste Rodin, Pablo Picasso, Vincent Van Gogh. 'Peinture' se dit 'painting', 'sculpture' se dit 'sculpture' et 'photographie' se dit 'photography' en francais."],
+        "context": [""]
+    },
+    {
+        "tag": "education",
+        "patterns": ["Quels sont les mots pour les niveaux d'education en francais ?", "Pouvez-vous me donner des exemples d'etablissements scolaires en francais ?", "Comment dit-on 'ecole', 'college' et 'universite' en francais ?"],
+        "responses": ["Voici quelques mots pour les niveaux d'education en francais : ecole (school), college (middle school), lycee (high school), universite (university), faculte (faculty), ecole maternelle (kindergarten)."],
+        "context": [""]
+    },    
+    {
+        "tag": "food",
+        "patterns": ["Quels sont les plats traditionnels francais ?", "Pouvez-vous me donner des exemples de cuisine francaise ?", "Comment dit-on 'pain', 'fromage' et 'vin' en francais ?"],
+        "responses": ["Les plats traditionnels francais sont nombreux et delicieux ! Quelques exemples de cuisine francaise sont la baguette, le croissant, le coq au vin, la ratatouille, les escargots, le fromage et bien sur, le vin. 'Pain' se dit 'bread', 'fromage' se dit 'cheese' et 'vin' se dit 'wine' en francais."],
+        "context": [""]
+    },
+    {
+        "tag": "fashion",
+        "patterns": ["Quels sont les mots pour les vetements en francais ?", "Pouvez-vous me donner des exemples de marques de mode francaises ?", "Comment dit-on 'robe', 'chemise' et 'chaussures' en francais ?"],
+        "responses": ["Voici quelques mots pour les vetements en francais : robe (dress), chemise (shirt), pantalon (pants), jupe (skirt), chaussures (shoes), chapeau (hat), veste (jacket), pull (sweater), costume (suit). Quelques marques de mode francaises celebres sont Chanel, Dior, Louis Vuitton, Hermes. 'Robe' se dit 'dress', 'chemise' se dit 'shirt' et 'chaussures' se dit 'shoes' en francais."],
+        "context": [""]
+    },
+    {
+        "tag": "holidays",
+        "patterns": ["Quels sont les jours feries en France ?", "Pouvez-vous me donner des exemples de fetes francaises ?", "Comment dit-on 'Noël', 'Paques' et 'Fete nationale' en francais ?"],
+        "responses": ["Les jours feries en France sont nombreux et marques par des celebrations speciales. Quelques exemples de fetes francaises sont Noël, Paques, la Fete nationale (14 juillet), la Toussaint, l'Ascension. 'Noël' se dit 'Christmas', 'Paques' se dit 'Easter' et 'Fete nationale' se dit 'National Day' en francais."],
+        "context": [""]
+    },
+    {
+        "tag": "health",
+        "patterns": ["Comment dire les termes de sante en francais ?", "Pouvez-vous me donner des exemples de mots lies a la sante en francais ?", "Quels sont les mots pour 'medecin', 'hopital' et 'pharmacie' en francais ?"],
+        "responses": ["En francais, les termes de sante sont importants pour pouvoir communiquer lors de situations medicales. 'Medecin' se dit 'doctor', 'hopital' se dit 'hospital' et 'pharmacie' se dit 'pharmacy' en francais. Vous pouvez egalement apprendre des mots comme 'maladie' (illness), 'fievre' (fever), 'douleur' (pain), 'ordonnance' (prescription), 'soins' (care)."],
+        "context": [""]
+    },
+    {
+        "tag": "transportation",
+        "patterns": ["Quels sont les moyens de transport en francais ?", "Pouvez-vous me donner des exemples de mots lies aux transports en francais ?", "Comment dit-on 'voiture', 'train' et 'avion' en francais ?"],
+        "responses": ["En francais, il existe plusieurs moyens de transport. 'Voiture' se dit 'car', 'train' se dit 'train' et 'avion' se dit 'plane' en francais. Vous pouvez egalement apprendre des mots comme 'bus' (bus), 'metro' (subway), 'velo' (bicycle), 'bateau' (boat), 'taxi' (taxi)."],
+        "context": [""]
+    },
+    {
+        "tag": "sports",
+        "patterns": ["Quels sont les sports populaires en France ?", "Pouvez-vous me donner des exemples de sports francais ?", "Comment dit-on 'football', 'tennis' et 'basketball' en francais ?"],
+        "responses": ["En France, les sports populaires sont le football, le tennis, le basketball, le rugby, le cyclisme, la natation et bien d'autres. 'Football' se dit 'football', 'tennis' se dit 'tennis' et 'basketball' se dit 'basket' en francais."],
+        "context": [""]
+    },
+    {
+        "tag": "technology",
+        "patterns": ["Quels sont les termes de technologie en francais ?", "Pouvez-vous me donner des exemples de mots lies a la technologie en francais ?", "Comment dit-on 'ordinateur', 'smartphone' et 'internet' en francais ?"],
+        "responses": ["En francais, les termes de technologie sont importants dans notre vie quotidienne. 'Ordinateur' se dit 'ordinateur', 'smartphone' se dit 'smartphone' et 'internet' se dit 'internet' en francais. Vous pouvez egalement apprendre des mots comme 'application' (app), 'reseau social' (social media), 'connexion' (connection), 'email' (email), 'site web' (website)."],
+        "context": [""]
+    },
+    {
+        "tag": "travel",
+        "patterns": ["Quels sont les mots pour les voyages en francais ?", "Pouvez-vous me donner des exemples de termes lies aux voyages en francais ?", "Comment dit-on 'hotel', 'avion' et 'excursion' en francais ?"],
+        "responses": ["Si vous aimez voyager, voici quelques mots en francais pour vous aider. 'Hotel' se dit 'hotel', 'avion' se dit 'avion' et 'excursion' se dit 'excursion' en francais. Vous pouvez egalement apprendre des mots comme 'train' (train), 'location de voiture' (car rental), 'guide touristique' (tour guide), 'passport' (passeport), 'bagage' (luggage)."],
+        "context": [""]
+    },
+    {
+        "tag": "business",
+        "patterns": ["Comment dire les termes commerciaux en francais ?", "Pouvez-vous me donner des exemples de mots lies aux affaires en francais ?", "Quels sont les mots pour 'entreprise', 'reunion' et 'client' en francais ?"],
+        "responses": ["En francais, il est utile de connaitre les termes commerciaux. 'Entreprise' se dit 'entreprise', 'reunion' se dit 'reunion' et 'client' se dit 'client' en francais. Vous pouvez egalement apprendre des mots comme 'marketing' (marketing), 'vente' (sales), 'negociation' (negotiation), 'budget' (budget), 'strategie' (strategy)."],
+        "context": [""]
+    },
+    {
+        "tag": "animals",
+        "patterns": ["Quels sont les mots pour les animaux en francais ?", "Pouvez-vous me donner des exemples de noms d'animaux en francais ?", "Comment dit-on 'chien', 'chat' et 'oiseau' en francais ?"],
+        "responses": ["Si vous aimez les animaux, voici quelques mots en francais pour vous. 'Chien' se dit 'chien', 'chat' se dit 'chat' et 'oiseau' se dit 'oiseau' en francais. Vous pouvez egalement apprendre des mots comme 'cheval' (horse), 'poisson' (fish), 'tigre' (tiger), 'elephant' (elephant), 'singe' (monkey)."],
+        "context": [""]
+    },
+    {
+        "tag": "numbers_exercice",
+        "patterns": ["exercice de nombres","Pouvez-vous me donner des exercices de vocabulaire sur les chiffres en francais ?", "Quels sont les mots pour les nombres en francais ?", "Comment dit-on 'un', 'deux' et 'trois' en francais ?"],
+        "responses": ["Bien sur ! Voici quelques exercices de vocabulaire sur les chiffres en francais :<br>1. Completez la sequence : un, deux, trois, quatre, ____.<br>2. Traduisez les chiffres suivants en francais : 5, 10, 15, 20, 25.<br>3. ecrivez les nombres de 1 a 10 en francais.<br>4. Combien font trois plus quatre ?<br><br>N'oubliez pas de pratiquer la prononciation en disant les chiffres a voix haute !"],
+        "context": [""]
+    },
+    {
+        "tag": "colors_exercice",
+        "patterns": ["Pouvez-vous me donner des exercices de vocabulaire sur les couleurs en francais ?", "Quels sont les mots pour les couleurs en francais ?", "Comment dit-on 'rouge', 'bleu' et 'vert' en francais ?"],
+        "responses": ["Bien sur ! Voici quelques exercices de vocabulaire sur les couleurs en francais :<br>1. Associez les mots aux couleurs : le ciel - ____, le soleil - ____, le sang - ____.<br>2. Donnez-moi cinq objets de couleur verte.<br>3. enumerez les couleurs primaires en francais.<br>4. Trouvez les mots dans cette grille de mots croises : ROUGE, JAUNE, VERT, BLEU.<br><br>N'hesitez pas a utiliser les couleurs dans des phrases pour pratiquer davantage !"],
+        "context": [""]
+    },
+    {
+        "tag": "food_exercice",
+        "patterns": ["Pouvez-vous me donner des exercices de vocabulaire sur la nourriture en francais ?", "Quels sont les mots pour les aliments en francais ?", "Comment dit-on 'pain', 'fromage' et 'fruits' en francais ?"],
+        "responses": ["Bien sur ! Voici quelques exercices de vocabulaire sur la nourriture en francais :<br>1. Nommez cinq fruits en francais.<br>2. Completez la phrase : J'aime manger du ____ tous les matins.<br>3. Associez les mots aux aliments : lait - ____, poulet - ____, carotte - ____.<br>4. enumerez les ingredients pour faire une salade en francais.<br><br>N'oubliez pas de pratiquer la prononciation des noms d'aliments !"],
+        "context": [""]
+    },
+    {
+        "tag": "animals_exercice",
+        "patterns": ["Pouvez-vous me donner des exercices de vocabulaire sur les animaux en francais ?", "Quels sont les mots pour les animaux en francais ?", "Comment dit-on 'chien', 'chat' et 'oiseau' en francais ?"],
+        "responses": ["Bien sur ! Voici quelques exercices de vocabulaire sur les animaux en francais :<br>1. Nommez cinq animaux de la ferme en francais.<br>2. Completez la phrase : Les ____ sont connus pour miauler.<br>3. Associez les mots aux animaux : cheval - ____, poisson - ____, singe - ____.<br>4. enumerez les animaux sauvages en francais.<br><br>N'hesitez pas a apprendre des noms d'animaux supplementaires pour enrichir votre vocabulaire !"],
+        "context": [""]
+    },
+    {
+        "tag": "weather_exercice",
+        "patterns": ["Pouvez-vous me donner un exercice de vocabulaire sur la meteo en francais ?", "Quels sont les mots pour decrire la meteo en francais ?", "Comment dit-on 'soleil', 'pluie' et 'nuage' en francais ?"],
+        "responses": ["Bien sur ! Voici un exercice de vocabulaire sur la meteo en francais :<br>Completez les phrases suivantes en utilisant les mots appropries :<br>1. Aujourd'hui, il fait _____. (soleil)<br>2. Demain, il va _____. (pleuvoir)<br>3. Les ____ sont blancs et legers dans le ciel. (nuages)<br>N'hesitez pas a pratiquer en decrivant la meteo chaque jour !"],
+        "context": [""]
+    },
+    {
+        "tag": "clothing_exercice",
+        "patterns": ["Pouvez-vous me donner un exercice de vocabulaire sur les vetements en francais ?", "Quels sont les mots pour les vetements en francais ?", "Comment dit-on 'chemise', 'pantalon' et 'chaussures' en francais ?"],
+        "responses": ["Bien sur ! Voici un exercice de vocabulaire sur les vetements en francais :<br>Associez les mots aux vetements correspondants :<br>1. ____ : t-shirt<br>2. ____ : jeans<br>3. ____ : robe<br>4. ____ : baskets<br><br>N'hesitez pas a pratiquer en decrivant ce que vous portez chaque jour !"],
+        "context": [""]
+    },
+    {
+        "tag": "transportation_exercice",
+        "patterns": ["Pouvez-vous me donner un exercice de vocabulaire sur les transports en francais ?", "Quels sont les mots pour les transports en francais ?", "Comment dit-on 'voiture', 'avion' et 'train' en francais ?"],
+        "responses": ["Bien sur ! Voici un exercice de vocabulaire sur les transports en francais :<br>Completez les phrases suivantes en utilisant les mots appropries :<br>1. Je prends le ____ pour aller travailler. (train)<br>2. L'____ est un moyen de transport rapide. (avion)<br>3. J'ai une ____ rouge. (voiture)<br><br>N'hesitez pas a pratiquer en decrivant vos deplacements quotidiens !"],
+        "context": [""]
+    },
+    {
+        "tag": "body_parts_exercice",
+        "patterns": ["Pouvez-vous me donner un exercice de vocabulaire sur les parties du corps en francais ?", "Quels sont les mots pour les parties du corps en francais ?", "Comment dit-on 'tete', 'bras' et 'jambes' en francais ?"],
+        "responses": ["Bien sur ! Voici un exercice de vocabulaire sur les parties du corps en francais :<br>Associez les mots aux parties du corps correspondantes :<br>1. ____ : tete<br>2. ____ : bras<br>3. ____ : jambes<br>4. ____ : pieds<br><br>N'hesitez pas a pratiquer en decrivant les parties de votre corps !"],
+        "context": [""]
+    },
+    {
+        "tag": "verb_conjugation",
+        "patterns": ["Pouvez-vous me donner un cours de grammaire sur la conjugaison des verbes en francais ?", "Comment conjugue-t-on les verbes en francais ?", "Quels sont les temps verbaux en francais ?"],
+        "responses": ["Bien sur ! Voici un cours de grammaire sur la conjugaison des verbes en francais :<br>En francais, il existe plusieurs temps verbaux, tels que :<br>1. Le present : j'aime, tu aimes, il/elle aime...<br>2. L'imparfait : j'aimais, tu aimais, il/elle aimait...<br>3. Le passe compose : j'ai aime, tu as aime, il/elle a aime...<br>4. Le futur : j'aimerai, tu aimeras, il/elle aimera...<br>N'hesitez pas a pratiquer la conjugaison en formant des phrases avec differents verbes !"],
+        "context": [""]
+    },
+    {
+        "tag": "sentence_structure",
+        "patterns": ["Pouvez-vous me donner un cours de grammaire sur la structure des phrases en francais ?", "Comment structure-t-on les phrases en francais ?", "Quels sont les elements d'une phrase en francais ?"],
+        "responses": ["Bien sur ! Voici un cours de grammaire sur la structure des phrases en francais :<br>En francais, une phrase typique se compose des elements suivants :<br>1. Le sujet : qui ou quoi fait l'action.<br>2. Le verbe : l'action ou l'etat.<br>3. Le complement : ajoute des informations supplementaires.<br>4. La ponctuation : marque la fin de la phrase.<br>N'hesitez pas a pratiquer en formant des phrases avec differents sujets, verbes et complements !"],
+        "context": [""]
+    },
+    {
+        "tag": "adjective_agreement",
+        "patterns": ["Pouvez-vous me donner un cours de grammaire sur l'accord des adjectifs en francais ?", "Comment accorde-t-on les adjectifs en francais ?", "Quelles sont les regles d'accord des adjectifs en francais ?"],
+        "responses": ["Bien sur ! Voici un cours de grammaire sur l'accord des adjectifs en francais :<br>En francais, les adjectifs s'accordent en genre (masculin/feminin) et en nombre (singulier/pluriel) avec le nom auquel ils se rapportent.<br>1. Exemple : un grand livre (masculin singulier), une grande table (feminin singulier), des grands livres (masculin pluriel), des grandes tables (feminin pluriel).<br>N'hesitez pas a pratiquer en formant des phrases avec des adjectifs accordes correctement !"],
+        "context": [""]
+    },
+    {
+        "tag": "pronoun_usage",
+        "patterns": ["Pouvez-vous me donner un cours de grammaire sur l'usage des pronoms en francais ?", "Comment utilise-t-on les pronoms en francais ?", "Quels sont les types de pronoms en francais ?"],
+        "responses": ["Bien sur ! Voici un cours de grammaire sur l'usage des pronoms en francais :<br>En francais, il existe plusieurs types de pronoms, tels que :<br>1. Les pronoms personnels : je, tu, il/elle, nous, vous, ils/elles.<br>2. Les pronoms possessifs : le mien, la tienne, les leurs...<br>3. Les pronoms demonstratifs : celui-ci, celle-la, ceux-la...<br>4. Les pronoms relatifs : qui, que, dont, où...<br>N'hesitez pas a pratiquer en remplacant des mots dans une phrase par les pronoms correspondants !"],
+        "context": [""]
+    },
+    {"tag": "language_learning",
+     "patterns": ["apprendre une langue", "cours de langue", "pratiquer une langue", "exercices de langue", "grammaire", "vocabulaire", "conversation", "ameliorer son anglais", "etudier le francais", "parler couramment"],
+     "responses": ["L'apprentissage des langues est un excellent moyen d'elargir ses horizons et de communiquer avec des personnes du monde entier. Je peux vous aider dans votre parcours d'apprentissage en vous proposant des exercices de vocabulaire, des explications grammaticales et des exercices de conversation."],
      "context": [""]
     },
-    {"tag": "hospital_search",
-     "patterns": ["Lookup for hospital", "Searching for hospital to transfer patient", "I want to search hospital data", "Hospital lookup for patient", "Looking up hospital details" ],
-     "responses": ["Please provide hospital name or location"],
-     "context": ["search_hospital_by_params"]
-    },
-    {"tag": "search_hospital_by_params",
-     "patterns": [],
-     "responses": ["Please provide hospital type"],
-     "context": ["search_hospital_by_type"]
-    },
-    {"tag": "search_hospital_by_type",
-     "patterns": [],
-     "responses": ["Loading hospital details"],
+    {"tag": "language_choice",
+     "patterns": ["Je veux apprendre le francais", "J'aimerais etudier le francais", "Je souhaite parler francais", "Apprendre une nouvelle langue", "Je veux ameliorer mon francais"],
+     "responses": ["C'est genial ! Laissez-moi vous guider dans votre apprentissage de la langue francais. Pour commencer, nous pouvons travailler sur votre vocabulaire. Je vais vous donner quelques mots courants et vous pouvez essayer de les memoriser. etes-vous pret ?"],
      "context": [""]
+    },
+    {"tag": "vocabulary_exercise",
+     "patterns": ["Pouvez-vous me donner un exercice de vocabulaire ?", "J'aimerais pratiquer mon vocabulaire", "Quel est un bon exercice pour apprendre de nouveaux mots ?","exercice de vocabulaire", "exercices de vocabulaire", "ameliorer mon vocabulaire", "apprendre de nouveaux mots","Oui, je suis pret", "D'accord", "Commencons", "Allons-y", "Je suis pret pour l'exercice de vocabulaire", "Vocabulaire"],
+     "responses": ["Tres bien! Voici un exercice de vocabulaire pour vous:<br>Quel est le mot francais pour 'car' ?<br>a) Maison<br>b) Voiture<br>c) Chien"],
+     "context": ["language_choice"]
+    },
+    {"tag": "vocab_exercise_response1",
+    "patterns": ["b", "voiture"],
+    "responses": ["Correct! 'Voiture' est le mot francais pour 'car'. Bien joue! Vous voulez essayer un autre exercice de vocabulaire ?"],
+    "context": ["vocabulary_exercise"]
+    },
+    {"tag": "vocab_exercise_response2",
+    "patterns": ["a", "maison", "c", "chien"],
+    "responses": ["Desole, ce n'est pas la bonne reponse. Le mot francais pour 'car' est 'voiture'. Vous voulez essayer un autre exercice de vocabulaire ?"],
+    "context": ["vocabulary_exercise"]
+    },
+    {"tag": "vocabulary_guess",
+     "patterns": ["Bonjour signifie 'hello'", "Maison veut dire 'house'", "Chien signifie 'cat'", "Amour signifie 'love'", "Soleil veut dire 'moon'"],
+     "responses": ["Tres bien ! Vous avez fait une bonne tentative, mais il y a quelques erreurs. Voici les reponses correctes :<br>1. Bonjour signifie 'hello'<br>2. Maison veut dire 'house'<br>3. Chien signifie 'dog'<br>4. Amour signifie 'love'<br>5. Soleil veut dire 'sun'<br><br>Continuez a pratiquer et vous vous ameliorerez rapidement. Si vous avez d'autres questions, n'hesitez pas a me les poser !"],
+     "context": ["vocabulary_exercise"]
+    },
+    {"tag": "grammar_explanation",
+     "patterns": ["Pouvez-vous m'expliquer la grammaire francaise ?", "J'ai du mal avec la grammaire", "Quelle est la regle grammaticale pour les verbes reguliers ?","explication grammaticale", "grammaire", "regles de grammaire", "comprendre la grammaire","Je veux en savoir plus sur la grammaire", "Expliquez-moi la grammaire", "Grammaire", "Regles grammaticales", "Je veux apprendre la grammaire"],
+     "responses": ["La grammaire est un aspect essentiel de l'apprentissage de la langue francaise. Quel aspect de la grammaire souhaitez-vous approfondir ? Par exemple, les temps verbaux, les regles de conjugaison ou les articles ?"],
+     "context": [""]
+    },
+    {"tag": "grammar_tenses",
+     "patterns": ["Je veux apprendre les temps verbaux", "Parlons des temps verbaux", "Temps verbaux", "Expliquez-moi les temps verbaux"],
+     "responses": ["Les temps verbaux sont utilises pour indiquer le moment où une action se produit. Les principaux temps verbaux en francais sont :<br>- Le present : utilise pour parler d'actions qui se deroulent actuellement.<br>- Le passe : utilise pour parler d'actions qui se sont deja produites.<br>- Le futur : utilise pour parler d'actions qui auront lieu a l'avenir.<br><br>Chaque temps verbal a ses propres conjugaisons et regles d'utilisation. Voulez-vous en savoir plus sur un temps verbal specifique ?"],
+     "context": ["grammar_explanation"]
+    },
+    {"tag": "grammar_conjugation",
+     "patterns": ["Comment conjuguer les verbes ?", "Regles de conjugaison", "Je veux apprendre a conjuguer les verbes"],
+     "responses": ["La conjugaison des verbes est importante pour former des phrases grammaticalement correctes. En francais, les verbes sont conjugues en fonction du sujet et du temps verbal utilise. Par exemple, pour conjuguer le verbe 'parler' au present, vous pouvez dire :<br><br>- Je parle<br>- Tu parles<br>- Il/elle/on parle<br>- Nous parlons<br>- Vous parlez<br>- Ils/elles parlent<br><br>Il existe des regles specifiques pour chaque groupe de verbes (verbes du premier groupe, du deuxieme groupe, etc.) ainsi que des verbes irreguliers. La pratique reguliere vous aidera a maitriser la conjugaison des verbes. Avez-vous des verbes specifiques que vous souhaitez apprendre a conjuguer ?"],
+     "context": ["grammar_explanation"]
+    },
+    {"tag": "conversation_exercise",
+     "patterns": ["Pouvez-vous me donner un exercice de conversation ?", "J'aimerais pratiquer ma conversation en francais", "Comment puis-je m'ameliorer en conversation ?","exercice de conversation", "pratiquer la conversation", "ameliorer mes competences en conversation", "converser en francais","Je veux pratiquer ma conversation", "Exercices de conversation", "Parlons ensemble", "Pratiquons la conversation", "Conversation"],
+     "responses": ["C'est une excellente idee de pratiquer la conversation ! Parlons ensemble pour ameliorer vos competences. Je vais poser quelques questions et vous pouvez y repondre. Pret ?"],
+     "context": [""]
+    },
+    {"tag": "conversation_question",
+     "patterns": ["Je suis pret", "D'accord, posez-moi une question", "Allons-y", "Je veux repondre a votre question", "Question"],
+     "responses": ["Tres bien ! Voici ma question : Quelle est votre destination de voyage de reve et pourquoi ? Prenez votre temps pour reflechir et lorsque vous etes pret, partagez votre reponse avec moi.","Tres bien! Voici un exercice de conversation pour vous:<br>Imaginez que vous etes dans un cafe en francais et vous voulez commander un cafe. Comment demandez-vous un cafe au serveur ?"],
+     "context": ["conversation_exercise"]
+    },
+    {"tag": "conversation_answer",
+     "patterns": ["Ma destination de reve est Paris. J'adore l'architecture et la culture francaise. De plus, la cuisine francaise est delicieuse !", "J'aimerais visiter les iles tropicales. J'aime le soleil et la plage.", "Je reve de visiter Tokyo. J'adore la culture japonaise et la technologie avancee.", "Mon reve est de voyager en Italie. J'adore la cuisine italienne et l'histoire du pays."],
+     "responses": ["C'est fantastique ! Paris, les iles tropicales, Tokyo et l'Italie sont des destinations de reve. Chacune a ses propres attractions uniques. Continuez a pratiquer votre conversation et vous vous sentirez de plus en plus a l'aise pour discuter dans la langue que vous apprenez. Si vous avez d'autres questions, n'hesitez pas a me les poser !"],
+     "context": ["conversation_question"]
+    },
+    {"tag": "conversation_exercise_response1",
+    "patterns": ["je voudrais un cafe s'il vous plait", "un cafe s'il vous plait", "je souhaite commander un cafe"],
+    "responses": ["Parfait! Vous avez demande un cafe correctement. Bien joue! Voulez-vous essayer un autre exercice de conversation ?"],
+    "context": ["conversation_question"]
+    },
+    {"tag": "conversation_exercise_response2",
+    "patterns": ["je veux un the", "j'aimerais un verre d'eau", "j'ai besoin d'un menu"],
+    "responses": ["Desole, ce n'est pas la bonne phrase pour demander un cafe. La bonne phrase est 'Je voudrais un cafe s'il vous plait'. Voulez-vous essayer un autre exercice de conversation ?"],
+    "context": ["conversation_question"]
+    },
+    {"tag": "additional_resources",
+     "patterns": ["Y a-t-il d'autres ressources d'apprentissage disponibles ?", "Plus de ressources","Où puis-je trouver des exercices supplementaires ?", "Besoin de plus de materiel d'apprentissage"],
+     "responses": ["Absolument ! En plus des exercices que je vous propose, vous pouvez egalement trouver des ressources supplementaires en ligne. Il existe de nombreux sites web, applications et livres dedies a l'apprentissage des langues. Certains cours en ligne proposent egalement des exercices interactifs et des lecons structurees. N'hesitez pas a explorer differentes ressources et a trouver celles qui conviennent le mieux a votre style d'apprentissage. Si vous avez besoin de recommandations specifiques, n'hesitez pas a me demander !"],
+     "context": [""]
+    },
+    {
+        "tag": "noun_gender",
+        "patterns": ["Pouvez-vous me donner un cours de grammaire sur le genre des noms en francais ?", "Comment determine-t-on le genre des noms en francais ?", "Quelles sont les regles de genre des noms en francais ?"],
+        "responses": ["Bien sur ! Voici un cours de grammaire sur le genre des noms en francais :<br>En francais, les noms peuvent etre masculins ou feminins. Voici quelques regles pour determiner le genre des noms :<br>1. Les noms se terminant par -e sont generalement feminins (ex : une table, une chaise).<br>2. Les noms se terminant par -age, -ege, -e, -ier, -eur sont generalement masculins (ex : un voyage, un heritage, un cafe, un boulanger, un acteur).<br>3. Il y a des exceptions où le genre d'un nom doit etre appris (ex : une voiture, un livre).<br>N'hesitez pas a pratiquer en identifiant le genre des noms dans des phrases et en les utilisant correctement !"],
+        "context": [""]
+    },
+    {
+        "tag": "adverb_usage",
+        "patterns": ["Pouvez-vous me donner un cours de grammaire sur l'usage des adverbes en francais ?", "Comment utilise-t-on les adverbes en francais ?", "Quels sont les types d'adverbes en francais ?"],
+        "responses": ["Bien sur ! Voici un cours de grammaire sur l'usage des adverbes en francais :<br>En francais, les adverbes sont utilises pour modifier des verbes, des adjectifs ou d'autres adverbes. Voici quelques types d'adverbes :<br>1. Les adverbes de maniere : rapidement, lentement, bien...<br>2. Les adverbes de temps : hier, aujourd'hui, souvent...<br>3. Les adverbes de lieu : ici, la-bas, partout...<br>4. Les adverbes de quantite : beaucoup, peu, suffisamment...<br>N'hesitez pas a pratiquer en ajoutant des adverbes dans vos phrases pour exprimer differentes nuances !"],
+        "context": [""]
+    },
+    {
+        "tag": "comparative_forms",
+        "patterns": ["Pouvez-vous me donner un cours de grammaire sur les formes comparatives en francais ?", "Comment forme-t-on les comparatifs en francais ?", "Quelles sont les regles de formation des comparatifs en francais ?"],
+        "responses": ["Bien sur ! Voici un cours de grammaire sur les formes comparatives en francais :<br>En francais, les comparatifs permettent de comparer deux choses. Voici quelques regles pour former les comparatifs :<br>1. Pour les adjectifs courts, ajoutez -er pour former le comparatif (ex : grand → plus grand).<br>2. Pour les adjectifs longs, utilisez plus + adjectif pour former le comparatif (ex : interessant → plus interessant).<br>3. Pour les adverbes, utilisez plus + adverbe pour former le comparatif (ex : rapidement → plus rapidement).<br>N'hesitez pas a pratiquer en formant des phrases avec des comparatifs pour exprimer des differences !"],
+        "context": [""]
+    },
+    {
+        "tag": "conditional_tenses",
+        "patterns": ["Pouvez-vous me donner un cours de grammaire sur les temps conditionnels en francais ?", "Comment utilise-t-on les temps conditionnels en francais ?", "Quels sont les temps conditionnels en francais ?"],
+        "responses": ["Bien sur ! Voici un cours de grammaire sur les temps conditionnels en francais :<br>En francais, il existe deux temps conditionnels :<br>1. Le conditionnel present : j'aimerais, tu aimerais, il/elle aimerait...<br>2. Le conditionnel passe : j'aurais aime, tu aurais aime, il/elle aurait aime...<br>Les temps conditionnels sont utilises pour exprimer une action hypothetique ou une demande polie. N'hesitez pas a pratiquer en formant des phrases avec les temps conditionnels !"],
+        "context": [""]
+    },
+    {
+        "tag": "word_categories",
+        "patterns": ["Pouvez-vous me donner un cours de vocabulaire sur les categories de mots en francais ?", "Quelles sont les differentes categories de mots en francais ?", "Comment classifie-t-on les mots en francais ?"],
+        "responses": ["Bien sur ! Voici un cours de vocabulaire sur les categories de mots en francais :<br>En francais, les mots peuvent etre classifies en plusieurs categories :<br>1. Les noms : personne, maison, livre...<br>2. Les verbes : manger, parler, courir...<br>3. Les adjectifs : beau, grand, intelligent...<br>4. Les adverbes : rapidement, lentement, souvent...<br>5. Les pronoms : je, tu, il/elle, nous, vous, ils/elles...<br>6. Les prepositions : a, dans, sur, avec...<br>7. Les conjonctions : et, ou, mais, donc...<br>N'hesitez pas a pratiquer en identifiant la categorie des mots dans des phrases et en les utilisant correctement !"],
+        "context": [""]
+    },
+    {
+        "tag": "idiomatic_expressions",
+        "patterns": ["Pouvez-vous me donner un cours de vocabulaire sur les expressions idiomatiques en francais ?", "Qu'est-ce qu'une expression idiomatique en francais ?", "Donnez-moi des exemples d'expressions idiomatiques en francais."],
+        "responses": ["Bien sur ! Voici un cours de vocabulaire sur les expressions idiomatiques en francais :<br>Les expressions idiomatiques sont des phrases ou des expressions qui ont un sens figure different de leur sens litteral. Voici quelques exemples d'expressions idiomatiques en francais :<br>1. \"Avoir le cœur sur la main\" : etre tres genereux.<br>2. \"Appuyer sur le champignon\" : accelerer, aller plus vite.<br>3. \"Se mettre dans la peau de quelqu'un\" : se mettre a la place de quelqu'un.<br>4. \"Tomber dans les pommes\" : s'evanouir.<br>5. \"Prendre son courage a deux mains\" : rassembler son courage pour faire quelque chose.<br>N'hesitez pas a pratiquer en utilisant des expressions idiomatiques dans vos conversations pour ajouter de la couleur et de la vivacite a votre langage !"],
+        "context": [""]
+    },
+    {
+        "tag": "synonyms_antonyms",
+        "patterns": ["Pouvez-vous me donner un cours de vocabulaire sur les synonymes et les antonymes en francais ?", "Comment trouve-t-on des synonymes et des antonymes en francais ?", "Quelles sont les techniques pour enrichir son vocabulaire en francais ?"],
+        "responses": ["Bien sur ! Voici un cours de vocabulaire sur les synonymes et les antonymes en francais :<br>Les synonymes sont des mots qui ont un sens similaire ou presque identique, tandis que les antonymes sont des mots qui ont un sens oppose. Voici quelques techniques pour enrichir votre vocabulaire en francais :<br>1. Lisez regulierement des livres, des articles et des magazines en francais pour decouvrir de nouveaux mots.<br>2. Utilisez un dictionnaire de synonymes et d'antonymes pour trouver des mots similaires ou opposes.<br>3. Faites des exercices de vocabulaire et de memorisation pour renforcer votre repertoire de mots.<br>4. Pratiquez en utilisant des synonymes et des antonymes dans vos conversations pour diversifier votre langage.<br>N'hesitez pas a explorer les ressources en ligne et les applications de vocabulaire pour continuer a ameliorer votre maitrise du francais !"],
+        "context": [""]
+    },
+    {
+        "tag": "language_resources",
+        "patterns": [
+          "Quelles sont les meilleures ressources pour apprendre une langue ?",
+          "Pouvez-vous recommander des sites web pour l'apprentissage des langues ?",
+          "Où puis-je trouver des cours en ligne pour apprendre une nouvelle langue ?",
+          "Avez-vous des suggestions pour des applications d'apprentissage des langues ?",
+          "ressources pour apprendre une langue", 
+          "sites web pour apprendre une langue", 
+          "applications pour apprendre une langue"
+        ],
+        "responses": [
+            "Il existe de nombreuses ressources disponibles pour apprendre une langue:<br>- Duolingo: Une application gratuite pour apprendre de nombreuses langues.<br>- Babbel: Une plateforme d'apprentissage des langues en ligne.<br>- Memrise: Une application qui utilise des methodes d'apprentissage ludiques.<br>- Coursera: Une plateforme d'apprentissage en ligne qui propose des cours de langues.<br>- FluentU: Un site web qui utilise des videos et des clips authentiques pour ameliorer votre comprehension de la langue cible.<br>Ce ne sont que quelques exemples, mais il y a de nombreuses autres ressources disponibles en fonction de la langue que vous souhaitez apprendre."
+        ],
+        "context": ""
+      },
+      {
+        "tag": "resources",
+        "patterns": ["Quels sont les meilleurs livres pour apprendre le francais ?", "Avez-vous des recommandations de ressources pour l'apprentissage du francais ?", "Pouvez-vous me dire où je peux trouver des cours de francais en ligne ?"],
+        "responses": ["Il existe de nombreuses ressources pour apprendre le francais. Voici quelques suggestions : 1) Livres : 'Alter Ego+', 'Grammaire Progressive du Francais', 'Le Petit Prince'. 2) Cours en ligne : Duolingo, Babbel, Rosetta Stone. 3) Applications : Lingvist, Memrise, HelloTalk. J'espere que cela vous aide !"],
+        "context": [""]
+        },
+      {
+        "tag": "language_websites",
+        "patterns": [
+          "Duolingo est-il un bon site pour apprendre une langue ?",
+          "Qu'est-ce que Babbel et comment cela peut-il m'aider dans mon apprentissage des langues ?",
+          "Connaissez-vous des sites web qui proposent des cours de langues gratuits ?",
+          "Quels sont les sites web les plus populaires pour apprendre des langues etrangeres ?"
+        ],
+        "responses": [
+          "Duolingo est un site web populaire et offre une gamme d'exercices interactifs pour apprendre differentes langues. Il peut etre un bon point de depart pour les debutants.",
+          "Babbel est une plateforme d'apprentissage des langues en ligne qui propose des cours structures et des exercices pratiques. C'est une option populaire pour les personnes qui souhaitent ameliorer leurs competences linguistiques.",
+          "Il existe plusieurs sites web qui proposent des cours de langues gratuits, tels que Coursera, OpenLearn et Memrise. Ce sont de bonnes ressources pour commencer votre apprentissage.",
+          "Parmi les sites web les plus populaires pour apprendre des langues etrangeres, on trouve : Duolingo, Babbel, Rosetta Stone, Memrise, et FluentU. Chacun de ces sites a ses propres avantages, il est donc recommande d'explorer et de trouver celui qui correspond le mieux a vos besoins."
+        ],
+        "context": ""
+      },
+      {
+        "tag": "language_apps",
+        "patterns": [
+          "Quelles sont les meilleures applications pour apprendre une langue sur smartphone ?",
+          "Pouvez-vous recommander des applications d'apprentissage des langues gratuites ?",
+          "Existe-t-il des applications qui permettent de pratiquer la conversation dans une langue etrangere ?",
+          "Quelle est la meilleure application pour apprendre l'anglais ?"
+        ],
+        "responses": [
+          "Il existe plusieurs applications populaires pour apprendre une langue sur smartphone. Voici quelques-unes des meilleures applications :",
+          "Les applications d'apprentissage des langues sont un moyen pratique d'etudier n'importe où et n'importe quand. Voici quelques recommandations d'applications gratuites :"
+        ],
+        "context": ""
+      },
+      {
+        "tag": "language_app_recommendation",
+        "patterns": [
+          "Qu'en est-il de l'application HelloTalk pour pratiquer la conversation dans une langue etrangere ?",
+          "Quelle est l'application la plus efficace pour apprendre le francais ?",
+          "Avez-vous des suggestions d'applications pour ameliorer ma prononciation en anglais ?",
+          "Je recherche une application pour apprendre le chinois, pouvez-vous m'en recommander une ?"
+        ],
+        "responses": [
+          "HelloTalk est une excellente application pour pratiquer la conversation dans une langue etrangere. Elle vous permet de communiquer avec des locuteurs natifs et d'ameliorer vos competences linguistiques.",
+          "Pour apprendre le francais, vous pouvez essayer des applications telles que Babbel, Duolingo, Rosetta Stone et Memrise. Elles offrent des lecons structurees et des exercices interactifs.",
+          "Si vous souhaitez ameliorer votre prononciation en anglais, vous pouvez utiliser des applications telles que Speechling, ELSA Speak, et Sounds: Pronunciation App. Elles vous aideront a pratiquer et a ameliorer votre accent.",
+          "Pour apprendre le chinois, vous pouvez essayer des applications telles que HelloChinese, Du Chinese et Pleco. Elles offrent des cours et des exercices pour vous aider a developper vos competences en chinois."
+        ],
+        "context": ""
+      },
+      {
+        "tag": "language_tips",
+        "patterns": [
+          "Avez-vous des conseils pour memoriser du vocabulaire dans une nouvelle langue ?",
+          "Comment puis-je ameliorer ma comprehension ecrite dans une langue etrangere ?",
+          "Quelles sont les meilleures strategies pour pratiquer la conversation dans une langue etrangere ?",
+          "Avez-vous des astuces pour apprendre la grammaire d'une langue plus facilement ?",
+          "conseils pour apprendre une langue", "astuces pour apprendre plus rapidement", "methodes d'apprentissage efficaces"
+        ],
+        "responses": [
+            "Voici quelques conseils pour apprendre une langue:<br>1. Pratiquez tous les jours, meme pendant de courtes periodes.<br>2. Immergez-vous dans la langue en ecoutant de la musique, en regardant des films ou en lisant des livres dans la langue cible.<br>3. Trouvez un partenaire d'echange linguistique pour pratiquer la conversation.<br>4. Utilisez des applications ou des sites web d'apprentissage des langues pour renforcer vos competences.<br>5. Soyez patient et perseverant. L'apprentissage d'une langue prend du temps, mais les progres viendront avec la pratique reguliere."
+        ],
+        "context": ""
+      },
+      {
+        "tag": "language_vocabulary_tips",
+        "patterns": [
+          "Pour memoriser du vocabulaire, vous pouvez essayer des techniques comme la repetition espacee, les cartes memoire ou l'utilisation d'applications speciales.",
+          "L'une des meilleures facons de memoriser du vocabulaire est de l'utiliser dans des phrases et des contextes reels. Essayez de creer des phrases avec les nouveaux mots que vous apprenez.",
+          "Lire regulierement dans la langue que vous apprenez peut vous aider a memoriser du vocabulaire. Essayez de lire des livres, des articles ou meme des journaux dans la langue cible.",
+          "Pratiquez regulierement l'ecoute de la langue que vous apprenez. ecoutez des podcasts, des chansons ou regardez des videos dans la langue cible pour ameliorer votre comprehension auditive."
+        ],
+        "responses": [
+          "Memoriser du vocabulaire peut etre un defi, mais voici quelques astuces qui peuvent vous aider :<br>- Utilisez des techniques de repetition espacee pour reviser regulierement le vocabulaire.<br>- Creez des associations et des liens avec des mots que vous connaissez deja.<br>- Pratiquez l'utilisation du vocabulaire dans des phrases et des contextes reels.<br>- Utilisez des applications ou des outils en ligne pour creer des cartes memoire ou des listes de vocabulaire personnalisees."
+        ],
+        "context": "language_tips"
+      },
+      {
+        "tag": "language_reading_tips",
+        "patterns": [
+          "Pour ameliorer votre comprehension ecrite, lisez regulierement des textes dans la langue que vous apprenez.",
+          "Essayez de lire des livres, des articles de journaux ou des blogs dans la langue cible.",
+          "Faites attention au contexte et utilisez le contexte pour comprendre le sens des mots que vous ne connaissez pas.",
+          "Commencez par des textes adaptes a votre niveau de langue et progressez vers des textes plus complexes au fur et a mesure que vous gagnez en confiance."
+        ],
+        "responses": [
+          "La lecture est un excellent moyen d'ameliorer votre comprehension ecrite dans une langue etrangere. Voici quelques conseils pour vous aider :<br>- Lisez regulierement des textes dans la langue cible.<br>- Choisissez des sujets qui vous interessent et qui sont adaptes a votre niveau de langue.<br>- Faites attention au contexte et utilisez les indices contextuels pour comprendre le sens des mots inconnus.<br>- Prenez des notes et faites des resumes pour vous aider a assimiler ce que vous avez lu."
+        ],
+        "context": "language_tips"
+      },
+      {
+        "tag": "language_conversation_tips",
+        "patterns": [
+          "Pour pratiquer la conversation, trouvez des partenaires linguistiques avec qui discuter.",
+          "Utilisez des applications ou des sites web qui mettent en relation des apprenants de langues.",
+          "Regardez des films, des series ou des videos dans la langue cible pour vous habituer a la prononciation et a la fluidite de la langue.",
+          "Prenez des cours de conversation ou rejoignez des groupes de conversation dans la langue que vous apprenez."
+        ],
+        "responses": [
+          "La pratique de la conversation est essentielle pour ameliorer vos competences linguistiques. Voici quelques conseils pour vous aider :<br>- Trouvez des partenaires linguistiques avec qui vous pouvez pratiquer la conversation.<br>- Utilisez des applications ou des sites web qui facilitent la mise en relation avec d'autres apprenants de langues.<br>- Regardez des films, des series ou des videos dans la langue cible pour vous habituer a la prononciation et a la fluidite de la langue.<br>- Prenez des cours de conversation ou rejoignez des groupes de conversation dans la langue que vous apprenez."
+        ],
+        "context": "language_tips"
+      },
+      {
+        "tag": "language_grammar_tips",
+        "patterns": [
+          "Pour apprendre la grammaire plus facilement, utilisez des ressources telles que des livres de grammaire, des cours en ligne ou des applications specialisees.",
+          "Pratiquez la grammaire en creant des phrases et des exercices qui mettent en evidence les regles grammaticales.",
+          "Identifiez les difficultes specifiques de la grammaire de la langue que vous apprenez et concentrez-vous sur ces aspects.",
+          "Travaillez avec un tuteur ou un professeur qui peut vous aider a comprendre et a pratiquer la grammaire de maniere structuree."
+        ],
+        "responses": [
+          "Apprendre la grammaire d'une langue peut etre un defi, mais voici quelques astuces qui peuvent vous aider :<br>- Utilisez des ressources dediees a l'apprentissage de la grammaire, comme des livres, des cours en ligne ou des applications specialisees.<br>- Pratiquez la grammaire en creant des phrases et des exercices qui mettent en evidence les regles grammaticales.<br>- Identifiez les aspects specifiques de la grammaire qui vous posent des difficultes et concentrez-vous sur ces aspects.<br>- Travailler avec un tuteur ou un professeur peut vous aider a comprendre et a pratiquer la grammaire de maniere structuree."
+        ],
+        "context": "language_tips"
+      },
+    {
+        "tag": "motivation",
+        "patterns": ["Comment rester motive(e) pour apprendre le francais ?", "Je me sens demotive(e) dans mon apprentissage du francais", "Quels conseils avez-vous pour maintenir ma motivation ?"],
+        "responses": ["La motivation est importante lors de l'apprentissage d'une langue. Voici quelques conseils pour rester motive(e) : 1) Fixez-vous des objectifs realisables. 2) Trouvez des sources d'inspiration, comme des films francais ou des chansons. 3) Pratiquez regulierement et recompensez-vous pour les progres realises. 4) Trouvez un partenaire d'apprentissage ou rejoignez une communaute en ligne pour vous encourager mutuellement. Gardez a l'esprit que chaque petit pas compte !"],
+        "context": [""]
+    },
+    {
+        "tag": "difficulties",
+        "patterns": ["Quelles sont les difficultes courantes lors de l'apprentissage du francais ?", "Quels sont les points les plus difficiles en francais ?", "Je rencontre des difficultes en grammaire"],
+        "responses": ["L'apprentissage du francais peut presenter differentes difficultes. Certaines des difficultes courantes incluent la prononciation, la conjugaison des verbes, les accords grammaticaux et l'utilisation des temps verbaux. Ne vous decouragez pas, avec de la pratique et de la perseverance, vous pouvez les surmonter !"],
+        "context": [""]
+    },
+    {
+        "tag": "culture",
+        "patterns": ["Pouvez-vous me parler de la culture francaise ?", "Quelles sont les coutumes francaises ?", "Quels sont les plats traditionnels francais ?"],
+        "responses": ["La culture francaise est riche et diversifiee. Elle comprend des elements tels que la gastronomie, l'art, la musique, la litterature, la mode et bien plus encore. En France, on attache egalement une grande importance aux repas, avec des habitudes telles que l'aperitif, le fromage et le vin. Les festivals, comme le carnaval et la fete de la musique, sont egalement tres populaires. La culture francaise est marquee par son histoire et sa diversite regionale. Si vous avez des questions sur des aspects culturels specifiques, n'hesitez pas a demander !","La culture francaise est riche et diverse. Elle est connue pour sa cuisine, ses monuments emblematiques comme la Tour Eiffel et son art. Certains plats traditionnels francais sont la baguette, le fromage, les escargots et la ratatouille. La France est egalement reputee pour ses festivals, comme le carnaval de Nice et le festival de Cannes. Decouvrir la culture francaise peut vous aider a mieux comprendre la langue et enrichir votre experience d'apprentissage."],
+        "context": [""]
+    },
+    {
+        "tag": "pronunciation",
+        "patterns": ["Comment ameliorer ma prononciation en francais ?", "Je lutte avec la prononciation en francais", "Avez-vous des conseils pour prononcer correctement ?"],
+        "responses": ["La prononciation en francais peut etre un defi, mais avec de la pratique, vous pouvez l'ameliorer. Voici quelques conseils : 1) ecoutez attentivement les locuteurs natifs et imitez leur prononciation. 2) Pratiquez les sons specifiques du francais en utilisant des exercices de prononciation. 3) Enregistrez-vous en train de parler et ecoutez-vous pour reperer les erreurs. 4) Essayez de vous immerger davantage dans la langue en regardant des videos ou en ecoutant de la musique francaise. N'oubliez pas de pratiquer regulierement et soyez patient(e) avec vous-meme !"],
+        "context": [""]
+    },
+    {
+        "tag": "exercise_suggestions",
+        "patterns": ["Avez-vous des suggestions pour des exercices ?", "Quels sont les meilleurs exercices pour ameliorer mon francais ?", "Je cherche des exercices pratiques."],
+        "responses": ["Bien sur ! Voici quelques suggestions d'exercices pour ameliorer votre francais : 1) Lire des articles ou des livres en francais et prendre des notes sur le vocabulaire et la grammaire. 2) ecouter des podcasts ou regarder des videos en francais et essayer de repeter les phrases a voix haute. 3) Pratiquer des exercices de conjugaison des verbes reguliers et irreguliers. 4) Participer a des conversations en francais avec d'autres apprenants ou des locuteurs natifs. J'espere que cela vous aidera !"],
+        "context": [""]
+      },
+      {
+        "tag": "language_level",
+        "patterns": ["Comment evaluer mon niveau de francais ?", "Existe-t-il un test pour determiner mon niveau de francais ?", "Comment savoir si je suis debutant, intermediaire ou avance ?"],
+        "responses": ["Il existe plusieurs tests de niveau de francais en ligne que vous pouvez passer pour evaluer votre niveau. Certains tests couramment utilises sont le Test de Connaissance du Francais (TCF), le Diplome d'etudes en Langue Francaise (DELF) et le Test d'evaluation du Francais (TEF). Ces tests evaluent generalement votre comprehension ecrite et orale, votre expression ecrite et orale, ainsi que votre grammaire et votre vocabulaire. Vous pouvez rechercher ces tests en ligne pour en savoir plus et determiner votre niveau actuel de francais."],
+        "context": [""]
+      },
+      {
+        "tag": "discussing_travels",
+        "patterns": ["Quelles sont les destinations touristiques populaires en France ?", "Quels endroits recommandez-vous de visiter en France ?", "Avez-vous des conseils pour voyager en France ?"],
+        "responses": ["La France est celebre pour ses destinations touristiques variees. Paris est l'une des villes les plus visitees au monde, avec des attractions telles que la Tour Eiffel, le Louvre et Notre-Dame. D'autres endroits populaires incluent la Cote d'Azur, les chateaux de la Loire, la region de Provence et la montagne de Mont Blanc. Lorsque vous voyagez en France, assurez-vous de gouter a la cuisine locale, d'explorer les marches et de profiter des paysages magnifiques. N'oubliez pas de pratiquer votre francais avec les habitants locaux !"],
+        "context": [""]
+    },
+      {
+        "tag": "learning_tips",
+        "patterns": ["Avez-vous des conseils pour apprendre le francais plus efficacement ?", "Comment puis-je optimiser mon apprentissage du francais ?", "Quelles sont les meilleures strategies d'apprentissage ?"],
+        "responses": ["Pour progresser rapidement en francais, voici quelques conseils :<br>- Pratiquez regulierement en lisant, ecoutant et parlant francais.<br>- Immergez-vous dans la langue en regardant des films, des series et des videos en francais.<br>- Faites des exercices de grammaire et de vocabulaire pour renforcer vos competences linguistiques.<br>- Participez a des conversations avec des locuteurs natifs ou rejoignez des groupes d'echange linguistique.<br>- Utilisez des applications et des ressources en ligne adaptees a votre niveau et a vos objectifs d'apprentissage.","Certainement ! Voici quelques conseils pour apprendre le francais de maniere plus efficace : 1) Pratiquez regulierement, meme si c'est juste quelques minutes par jour. La constance est importante. 2) Immergez-vous dans la langue en ecoutant des chansons francaises, en regardant des films ou en lisant des livres en francais. 3) Faites des exercices de maniere variee, en travaillant la comprehension orale, l'expression ecrite, la lecture et la conversation. 4) Trouvez un partenaire d'apprentissage ou un tuteur pour pratiquer la conversation. 5) Fixez-vous des objectifs realistes et mesurables pour suivre votre progression. Bonne chance dans votre apprentissage du francais !"],
+        "context": [""]
+    },
+    {
+        "tag": "asking_for_help",
+        "patterns": ["Pouvez-vous m'aider avec la prononciation ?", "J'ai du mal avec la grammaire, pouvez-vous m'expliquer ?", "Je ne comprends pas certains mots, pouvez-vous les definir ?"],
+        "responses": ["Bien sur, je suis la pour vous aider ! Posez-moi vos questions sur la prononciation, la grammaire ou le vocabulaire et je ferai de mon mieux pour vous fournir des explications claires."],
+        "context": [""]
+    },
+    {
+        "tag": "discussing_languages",
+        "patterns": ["Quelles autres langues parlez-vous ?", "Connaissez-vous d'autres langues en plus du francais ?", "Parlez-vous anglais ?"],
+        "responses": ["En tant que chatbot, je suis programme pour communiquer en francais et en anglais. Si vous avez besoin d'aide dans une autre langue, n'hesitez pas a demander et je ferai de mon mieux pour vous comprendre."],
+        "context": [""]
+    },
+    {
+        "tag": "sharing_language_learning_experience",
+        "patterns": ["Avez-vous deja appris une nouvelle langue ?", "Quelle a ete votre experience d'apprentissage d'une langue etrangere ?", "Avez-vous des conseils bases sur votre propre experience d'apprentissage ?"],
+        "responses": ["En tant que chatbot, je n'ai pas d'experience personnelle d'apprentissage d'une langue. Cependant, je peux vous donner des conseils bases sur les meilleures pratiques et les methodes d'apprentissage recommandees par les experts."],
+        "context": [""]
+    },
+    {
+        "tag": "discussing_language_goals",
+        "patterns": ["Quels sont vos objectifs d'apprentissage de la langue ?", "Qu'est-ce que vous esperez accomplir en apprenant le francais ?", "Pourquoi avez-vous decide d'apprendre le francais ?"],
+        "responses": ["En tant que chatbot, mon objectif principal est de vous aider a apprendre le francais et a atteindre vos propres objectifs d'apprentissage. Que vous souhaitiez ameliorer vos competences linguistiques pour le travail, les etudes ou les voyages, je suis la pour vous accompagner tout au long de votre parcours d'apprentissage."],
+        "context": [""]
+    },
+    {
+        "tag": "discussing_cultural_activities",
+        "patterns": ["Quels sont les types d'activites culturelles populaires en France ?", "Quelles sont les festivals francais celebres ?", "Que puis-je faire pour m'immerger dans la culture francaise ?"],
+        "responses": ["En France, il existe de nombreuses activites culturelles populaires. Vous pouvez assister a des festivals tels que le Festival de Cannes, le Festival d'Avignon ou la Fete de la Musique. Les musees, comme le Louvre et le Musee d'Orsay, offrent egalement des experiences culturelles uniques. Pour vous immerger davantage dans la culture francaise, vous pouvez visiter des marches locaux, gouter a la cuisine traditionnelle francaise et participer a des evenements culturels dans votre region."],
+        "context": [""]
+    },
+    {
+        "tag": "discussing_language_skills",
+        "patterns": ["Comment puis-je ameliorer mes competences en comprehension orale ?", "Quelles sont les meilleures pratiques pour ameliorer la prononciation en francais ?", "Comment puis-je developper ma fluidite dans la conversation en francais ?"],
+        "responses": ["Pour ameliorer vos competences en comprehension orale, vous pouvez ecouter des enregistrements audio, regarder des videos en francais et pratiquer l'ecoute active en vous concentrant sur les details. Pour ameliorer votre prononciation, vous pouvez utiliser des ressources en ligne qui fournissent des exemples audio et travailler avec un tuteur ou un professeur pour obtenir des corrections et des conseils personnalises. Pour developper votre fluidite dans la conversation, il est important de pratiquer regulierement en engageant des conversations avec d'autres apprenants ou des locuteurs natifs, que ce soit en personne ou en ligne."],
+        "context": [""]
+    },
+    {
+        "tag": "discussing_language_resources",
+        "patterns": ["Quels sont les meilleurs livres pour apprendre le francais ?", "Pouvez-vous me recommander des applications d'apprentissage du francais ?", "Où puis-je trouver des ressources en ligne gratuites pour apprendre le francais ?"],
+        "responses": ["Il existe de nombreux livres utiles pour apprendre le francais, tels que 'Le Petit Prince' d'Antoine de Saint-Exupery, 'L'etranger' d'Albert Camus et 'Madame Bovary' de Gustave Flaubert. Pour les applications d'apprentissage du francais, vous pouvez essayer Duolingo, Babbel, Rosetta Stone ou Memrise. En ce qui concerne les ressources en ligne gratuites, vous pouvez consulter des sites tels que BBC Languages, FluentU, et le site web de l'Institut francais qui propose des cours et des exercices gratuits."],
+        "context": [""]
+    },
+    {
+        "tag": "discussing_study_tips",
+        "patterns": ["Avez-vous des conseils d'etude pour apprendre le francais efficacement ?", "Comment puis-je organiser mon temps d'etude pour maximiser ma progression en francais ?", "Quelles sont les meilleures strategies pour memoriser le vocabulaire francais ?"],
+        "responses": ["Pour apprendre le francais efficacement, il est recommande de pratiquer regulierement, meme en petites quantites chaque jour, plutot que d'etudier pendant de longues periodes de temps de maniere occasionnelle. Organisez votre temps d'etude de maniere a inclure differentes activites telles que la lecture, l'ecoute, la pratique de la conversation et des exercices de grammaire et de vocabulaire. Pour memoriser le vocabulaire francais, utilisez des techniques telles que la repetition espacee, la creation d'associations et l'utilisation de flashcards."],
+        "context": [""]
+    },
+    {
+        "tag": "expressing_language_difficulties",
+        "patterns": ["J'ai du mal a comprendre les accents differents en francais.", "La conjugaison des verbes est difficile pour moi.", "Je suis confus avec l'utilisation des pronoms en francais."],
+        "responses": ["Je comprends que vous puissiez rencontrer des difficultes avec certains aspects de la langue francaise. Les accents regionaux peuvent etre delicats, mais avec la pratique reguliere de l'ecoute et l'exposition a differents accents, vous vous y habituerez progressivement. En ce qui concerne la conjugaison des verbes et l'utilisation des pronoms, il est important de pratiquer et de se familiariser avec les regles grammaticales. Vous pouvez consulter des ressources en ligne, des livres de grammaire et effectuer des exercices pour renforcer vos competences dans ces domaines."],
+        "context": [""]
+    },
+    {
+        "tag": "discussing_language_exchange",
+        "patterns": ["Existe-t-il des plateformes en ligne pour trouver des partenaires d'echange linguistique ?", "Comment puis-je trouver un locuteur natif de francais pour pratiquer la conversation ?", "Avez-vous des conseils pour etablir un echange linguistique efficace ?"],
+        "responses": ["Oui, il existe plusieurs plateformes en ligne où vous pouvez trouver des partenaires d'echange linguistique. Des sites tels que ConversationExchange, Tandem et HelloTalk sont populaires pour trouver des locuteurs natifs de francais qui souhaitent apprendre votre langue maternelle en echange. Pour etablir un echange linguistique efficace, il est important de definir des objectifs clairs, d'etablir un horaire regulier de pratique, de respecter les besoins et les interets de votre partenaire linguistique, et de fournir un environnement d'apprentissage positif et encourageant."],
+        "context": [""]
+    },
+    {
+        "tag": "discussing_cultural_etiquette",
+        "patterns": ["Quelles sont les regles d'etiquette a suivre en France ?", "Y a-t-il des comportements specifiques a eviter en interagissant avec des Francais ?", "Pouvez-vous me donner des conseils sur la maniere de se comporter de maniere appropriee dans la culture francaise ?"],
+        "responses": ["En France, il est courant de dire 'Bonjour' et 'Au revoir' lorsque vous entrez et sortez d'un magasin ou d'un restaurant. Il est egalement poli de dire 'S'il vous plait' et 'Merci' lorsque vous demandez quelque chose ou recevez de l'aide. Lorsque vous rencontrez des Francais, une poignee de main est une salutation appropriee. evitez de poser des questions personnelles des le debut d'une conversation et respectez l'espace personnel des autres. En general, faites preuve de politesse, d'ouverture d'esprit et de respect envers la culture et les coutumes francaises."],
+        "context": [""]
+    },
+    {
+        "tag": "sharing_learning_resources",
+        "patterns": ["Avez-vous des recommandations de podcasts en francais ?", "Quels sont les meilleurs sites web pour pratiquer la comprehension ecrite en francais ?", "Pouvez-vous me recommander des chaines YouTube pour apprendre le francais ?"],
+        "responses": ["Bien sur ! Pour les podcasts en francais, vous pouvez ecouter 'Coffee Break French', 'Francais Authentique' et 'Learn French by Podcast'. Pour la comprehension ecrite, des sites tels que Le Point du FLE, TV5MONDE, et Le Monde proposent des articles et des exercices pour tous les niveaux. Pour les chaines YouTube, vous pouvez consulter 'Francais avec Pierre', 'Easy French', et 'Comme une Francaise' qui offrent des lecons, des astuces et des videos pour ameliorer votre francais."],
+        "context": [""]
+    },
+    {
+        "tag": "discussing_language_certifications",
+        "patterns": ["Quels sont les certificats de francais reconnus internationalement ?", "Quelle est l'importance des certifications de francais ?", "Comment puis-je me preparer aux examens de francais ?"],
+        "responses": ["Les certificats de francais reconnus internationalement comprennent le DELF (Diplome d'etudes en Langue Francaise) et le DALF (Diplome Approfondi de Langue Francaise). Ces certifications evaluent vos competences en francais et sont largement acceptees par les universites, les employeurs et les institutions educatives dans le monde entier. Pour vous preparer aux examens de francais, vous pouvez suivre des cours preparatoires, pratiquer avec des tests de pratique en ligne et consulter des ressources specifiques a chaque examen."],
+        "context": [""]
+    },
+    {
+        "tag": "discussing_cultural_topics",
+        "patterns": ["Quels sont les aspects culturels importants en France ?", "Quels sont les festivals de musique francais celebres ?", "Quels sont les plats traditionnels francais ?"],
+        "responses": ["La culture francaise est riche et diversifiee. Elle est connue pour ses arts, sa cuisine, sa mode et son architecture. En France, vous trouverez de nombreux festivals de musique celebres tels que le Festival de Cannes, la Fete de la Musique et le Festival d'Avignon. Les plats traditionnels francais comprennent la baguette, le fromage, les escargots, les crepes, le coq au vin et bien d'autres delices culinaires."],
+        "context": [""]
+    },
+    {
+        "tag": "discussing_language_mistakes",
+        "patterns": ["Quels sont les erreurs courantes a eviter lors de l'apprentissage du francais ?", "Comment puis-je eviter les confusions de genre en francais ?", "Quelles sont les fautes de grammaire les plus frequentes en francais ?"],
+        "responses": ["Lors de l'apprentissage du francais, il est courant de confondre les genres des mots. Il est important de pratiquer regulierement et d'apprendre le genre des mots en meme temps que leur vocabulaire. Les fautes de grammaire courantes incluent l'omission des articles, l'utilisation incorrecte des verbes conjugues et la confusion entre les temps verbaux. Pour eviter ces erreurs, la pratique reguliere, l'etude des regles grammaticales et la correction des erreurs sont essentielles."],
+        "context": [""]
+    },
+    {
+        "tag": "discussing_french_literature",
+        "patterns": ["Quels sont les genres de litterature populaires en France ?", "Quels sont les romans classiques francais que je devrais lire ?", "Quels sont les auteurs contemporains francais a decouvrir ?"],
+        "responses": ["La litterature francaise couvre un large eventail de genres, tels que la poesie, le theatre, le roman et la philosophie. Parmi les romans classiques francais incontournables, on trouve 'Les Miserables' de Victor Hugo, 'a la recherche du temps perdu' de Marcel Proust et 'L'etranger' d'Albert Camus. En ce qui concerne les auteurs contemporains, vous pouvez decouvrir les œuvres de Michel Houellebecq, Amelie Nothomb et Leïla Slimani, entre autres."],
+        "context": [""]
+    },
+    {
+        "tag": "discussing_french_idioms",
+        "patterns": ["Quels sont quelques idiomes couramment utilises en francais ?", "Pouvez-vous me donner des exemples d'expressions idiomatiques francaises ?", "Comment puis-je comprendre et utiliser les idiomes en francais ?"],
+        "responses": ["La langue francaise regorge d'expressions idiomatiques. Voici quelques exemples : 'Avoir le coup de foudre' (to fall in love at first sight), 'Casser les pieds' (to annoy someone), 'Mettre les pieds dans le plat' (to put one's foot in it). Pour comprendre et utiliser les idiomes en francais, il est utile de les apprendre dans leur contexte, de les pratiquer dans des conversations et de les associer a des situations specifiques."],
+        "context": [""]
+    },
+    {
+        "tag": "discussing_french_proverbs",
+        "patterns": ["Quels sont quelques proverbes francais celebres ?", "Pouvez-vous me donner des exemples de proverbes en francais ?", "Quelle est la signification des proverbes francais ?"],
+        "responses": ["Les proverbes font partie integrante de la langue francaise. En voici quelques exemples : 'Qui seme le vent recolte la tempete' (You reap what you sow), 'L'habit ne fait pas le moine' (Don't judge a book by its cover), 'Chose promise, chose due' (A promise is a promise). Les proverbes francais vehiculent des enseignements et des verites generales sur la vie."],
+        "context": [""]
+    },
+    {
+        "tag": "discussing_french_slang",
+        "patterns": ["Quels sont les mots d'argot francais couramment utilises ?", "Pouvez-vous me donner des exemples de l'argot francais ?", "Comment puis-je comprendre et utiliser l'argot en francais ?"],
+        "responses": ["L'argot francais est une partie vivante de la langue. Voici quelques exemples : 'C'est genial' (C'est cool), 'ca marche' (ca va), 'C'est chouette' (C'est super). Pour comprendre et utiliser l'argot en francais, il est utile d'ecouter des locuteurs natifs, de regarder des films ou des series populaires et de pratiquer dans des conversations informelles."],
+        "context": [""]
+    },
+    {
+        "tag": "discussing_french_cultural_customs",
+        "patterns": ["Quelles sont les coutumes culturelles importantes en France ?", "Quelles sont les regles de politesse francaises ?", "Comment puis-je me comporter correctement dans un contexte social francais ?"],
+        "responses": ["La culture francaise est riche en coutumes et en regles de politesse. Quelques exemples sont : dire 'Bonjour' et 'Au revoir' lorsque vous entrez ou quittez un lieu, faire la bise pour saluer, dire 'Merci' et 'S'il vous plait' dans les interactions quotidiennes. Il est egalement important de respecter les horaires des repas et d'adopter une attitude respectueuse envers la nourriture et le vin. Observer et s'adapter aux comportements sociaux francais est essentiel pour bien s'integrer."],
+        "context": [""]
+    },
+    {
+        "tag": "discussing_french_idioms",
+        "patterns": ["Quels sont quelques idiomes couramment utilises en francais ?", "Pouvez-vous me donner des exemples d'expressions idiomatiques francaises ?", "Comment puis-je comprendre et utiliser les idiomes en francais ?"],
+        "responses": ["La langue francaise regorge d'expressions idiomatiques. Voici quelques exemples : 'Avoir le coup de foudre' (to fall in love at first sight), 'Casser les pieds' (to annoy someone), 'Mettre les pieds dans le plat' (to put one's foot in it). Pour comprendre et utiliser les idiomes en francais, il est utile de les apprendre dans leur contexte, de les pratiquer dans des conversations et de les associer a des situations specifiques."],
+        "context": [""]
+    },
+    {
+        "tag": "discussing_french_proverbs",
+        "patterns": ["Quels sont quelques proverbes francais celebres ?", "Pouvez-vous me donner des exemples de proverbes en francais ?", "Quelle est la signification des proverbes francais ?"],
+        "responses": ["Les proverbes font partie integrante de la langue francaise. En voici quelques exemples : 'Qui seme le vent recolte la tempete' (You reap what you sow), 'L'habit ne fait pas le moine' (Don't judge a book by its cover), 'Chose promise, chose due' (A promise is a promise). Les proverbes francais vehiculent des enseignements et des verites generales sur la vie."],
+        "context": [""]
+    },
+    {
+        "tag": "discussing_french_slang",
+        "patterns": ["Quels sont les mots d'argot francais couramment utilises ?", "Pouvez-vous me donner des exemples de l'argot francais ?", "Comment puis-je comprendre et utiliser l'argot en francais ?"],
+        "responses": ["L'argot francais est une partie vivante de la langue. Voici quelques exemples : 'C'est genial' (C'est cool), 'ca marche' (ca va), 'C'est chouette' (C'est super). Pour comprendre et utiliser l'argot en francais, il est utile d'ecouter des locuteurs natifs, de regarder des films ou des series populaires et de pratiquer dans des conversations informelles."],
+        "context": [""]
+    },
+    {
+        "tag": "discussing_french_traditions",
+        "patterns": ["Quelles sont les traditions francaises ?", "Pouvez-vous me parler des traditions en France ?", "Quels sont les evenements traditionnels en France ?"],
+        "responses": ["La France a de nombreuses traditions culturelles. Parmi les traditions francaises, on trouve la celebration de la Fete de la Bastille le 14 juillet, les marches de Noël pendant la periode de Noël, et la galette des Rois a l'epiphanie. Chaque region en France a aussi ses propres traditions et festivites."],
+        "context": [""]
+    },
+    {
+        "tag": "language_challenges",
+        "patterns": ["Connaissez-vous des defis pour ameliorer mon francais ?", "Quels sont les defis linguistiques que je peux relever pour renforcer ma maitrise du francais ?", "Avez-vous des idees pour rendre l'apprentissage du francais plus interessant ?"],
+        "responses": ["Absolument ! Vous pouvez essayer les defis suivants pour ameliorer votre francais : 1. Le defi de la phrase quotidienne : essayez de former et de traduire une nouvelle phrase en francais chaque jour. 2. Le defi de lecture : fixez-vous un objectif de lire un certain nombre de pages ou de livres en francais chaque mois. 3. Le defi de la liste de vocabulaire : creez une liste de nouveaux mots en francais a apprendre chaque semaine et revisez-les regulierement. 4. Le defi de la conversation : trouvez un partenaire de conversation et engagez-vous a avoir des conversations regulieres en francais. Ces defis vous aideront a maintenir votre motivation et a progresser dans l'apprentissage du francais."],
+        "context": [""]
+    },
+    {
+        "tag": "language_correction",
+        "patterns": ["Pouvez-vous corriger mes phrases en francais ?", "Pouvez-vous m'aider a ameliorer ma grammaire et mon orthographe en francais ?", "Où puis-je obtenir des corrections pour mes textes en francais ?"],
+        "responses": ["Bien sur ! Je serai ravi de vous aider a corriger vos phrases en francais. Vous pouvez me soumettre vos phrases ou textes et je vous fournirai des corrections et des suggestions pour ameliorer votre grammaire et votre orthographe. De plus, il existe egalement des plateformes en ligne où vous pouvez obtenir des corrections de textes en francais, comme Lang-8 et HiNative. Ces plateformes permettent aux locuteurs natifs de vous aider a ameliorer vos competences en francais en vous fournissant des corrections et des conseils."],
+        "context": [""]
+    },
+    {
+        "tag": "language_exam_prep",
+        "patterns": ["Comment me preparer a un examen de francais ?", "Quels sont les conseils pour reussir un examen de francais ?", "Avez-vous des ressources pour la preparation aux examens de francais ?"],
+        "responses": ["Pour vous preparer a un examen de francais, voici quelques conseils : 1. Familiarisez-vous avec la structure de l'examen et les types de questions posees. 2. Pratiquez regulierement en faisant des exercices d'entrainement et des tests pratiques. 3. Ameliorez votre comprehension ecrite et orale en lisant des articles, en ecoutant des enregistrements audio et en regardant des videos en francais. 4. Travaillez sur votre expression ecrite et orale en ecrivant des essais, en participant a des discussions et en pratiquant la conversation avec des locuteurs natifs. 5. Utilisez des ressources specifiques a l'examen, telles que des livres de preparation aux examens et des cours en ligne. Bonne chance pour votre examen !"],
+        "context": [""]
+    },
+    {
+        "tag": "language_immersion",
+        "patterns": ["Comment puis-je m'immerger dans la langue francaise ?", "Quelles sont les meilleures facons de pratiquer le francais au quotidien ?", "Y a-t-il des programmes d'immersion linguistique en francais ?"],
+        "responses": ["Pour vous immerger dans la langue francaise, voici quelques suggestions : 1. Regardez des films, des series televisees et des emissions en francais. 2. ecoutez des podcasts ou des stations de radio francaises. 3. Lisez des livres, des magazines et des journaux en francais. 4. Pratiquez la conversation avec des locuteurs natifs ou des partenaires d'echange linguistique. 5. Voyagez en France ou dans des pays francophones pour une immersion complete dans la culture et la langue francaise. Il existe egalement des programmes d'immersion linguistique en francais, tels que des cours intensifs dans des ecoles de langue francaises a l'etranger. Ces programmes offrent une opportunite unique d'ameliorer rapidement vos competences en francais en vous plongeant dans un environnement francophone."],
+        "context": [""]
     }
 ]
 }
+  
