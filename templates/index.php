@@ -21,6 +21,8 @@
       </div>
     </header>
 
+    <script src='https://use.fontawesome.com/releases/v5.0.13/js/all.js'></script>
+  <script>
     <main class="msger-chat">
       <div class="msg left-msg">
         <div class="msg-img" style="background-image: url(https://i.pinimg.com/736x/7d/9b/1d/7d9b1d662b28cd365b33a01a3d0288e1--robot-logo-design-logo-robot.jpg)"></div>
@@ -28,15 +30,15 @@
         <div class="msg-bubble">
           <div class="msg-info">
             <div class="msg-info-name">Frenchbot</div>
-            <div class="msg-info-time">10:45</div>
+            <div class="msg-info-time">`${formatDate(new Date())}`</div>
           </div>
 
           <div class="msg-text">
-            Bienvenue dans notre platfome d'apprentissage de la langue francaise. 😄
+            Bienvenue dans notre platfome d'apprentissage de la langue francaise.
             <br>
-            Nous avons un large choix pour vous, des cours, des ressouces, des conseils..
+            Nous avons une large choix pour vous, des cours, des ressouces, des conseils..
             <br>
-            N'hesitez pas a poser des questions, je suis la pour vous aider !
+            N'hesitez pas a poser les questions, je suis la pour vous aider ! 😄
           </div>
         </div>
       </div>
@@ -45,12 +47,11 @@
 
     <form class="msger-inputarea">
       <input type="text" class="msger-input" id="textInput" placeholder="Enter your message...">
-      <button type="submit" class="msger-send-btn">Envoyer</button>
+      <button type="submit" class="msger-send-btn">Send</button>
     </form>
   </section>
   <!-- partial -->
-  <script src='https://use.fontawesome.com/releases/v5.0.13/js/all.js'></script>
-  <script>
+  
 
     const msgerForm = get(".msger-inputarea");
     const msgerInput = get(".msger-input");
