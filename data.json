@@ -1,7 +1,7 @@
 {"intents": [
     {
     "tag": "def",
-    "patterns": ["", " ","Qu'est-ce que cela signifie ?", "Pouvez-vous me donner une definition ?", "Expliquez-moi cette expression."],
+    "patterns": [""],
     "responses": ["Je ne comprends pas. Pouvez-vous reformuler votre question, s'il vous plait?"],
     "context": [""]
     },
@@ -95,7 +95,15 @@
     },
 
 
-    
+    {
+      "tag": "suggestions",
+      "patterns": ["suggestions","suggestion","suggestions pour apprendre la langue francaise","tous"],
+      "responses": ["Voici quelques suggestions :<br><br>- des nouveaux termes en vocabulaire<br>- les cours de vocabulaire<br>- les cours de conversation<br>- la structure du base de francais <br>- les ressources<br>- les conseils<br><br><br>N'hesitez pas a choisir l'un de ces sujets et a poser une question specifique a ce sujet. Je suis la pour vous aider !"],
+      "context": [""]
+    },
+  
+  
+
     {
         "tag": "suggestions_terme_vocabulaire",
         "patterns": ["Pouvez-vous me donner des nouveaux termes ?", "J'aimerais enrichir mon vocabulaire", "mots de vocabulaire","termes","ameliorer mon vocabulaire", "apprendre de nouveaux mots","apprendre de nouveaux termes","Oui, je suis pret", "D'accord", "Commencons", "Allons-y", "Je suis pret pour le vocabulaire"],

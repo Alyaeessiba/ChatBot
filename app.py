@@ -61,6 +61,8 @@ def getResponse(ints, intents_json):
 def chatbot_response(msg):
     ints = predict_class(msg, model)
     res = getResponse(ints, intents)
+    print("chatbot response")
+    print(res)
     return res
 
 
@@ -69,9 +71,14 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 app.static_folder = 'static'
 
-@app.route("/")
-def home():
-    return render_template("index.html")
+@app.route('/index', methods=['POST'])
+def index():
+    username = request.form.get('username')
+    return render_template('index.html', username=username)
+
+@app.route('/')
+def connexion():
+    return render_template('connexion.html')
 
 @app.route("/get")
 def get_bot_response():
