@@ -48,15 +48,20 @@ def predict_class(sentence, model):
     for r in results:
         return_list.append({"intent": classes[r[0]], "probability": str(r[1])})
     return return_list
-
 def getResponse(ints, intents_json):
+    if len(ints) == 0:
+        return "Je ne comprends pas. Pouvez-vous reformuler votre question, s'il vous plait?"
+    
     tag = ints[0]['intent']
     list_of_intents = intents_json['intents']
+    
     for i in list_of_intents:
-        if(i['tag']== tag):
+        if i['tag'] == tag:
             result = random.choice(i['responses'])
             break
+    
     return result
+
 
 def chatbot_response(msg):
     ints = predict_class(msg, model)
