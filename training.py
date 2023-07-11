@@ -21,64 +21,74 @@ intents = json.loads(data_file)
 for intent in intents['intents']:
     for pattern in intent['patterns']:
 
-        #tokenize each word
+        #tokenize chaque mot
         w = nltk.word_tokenize(pattern)
         words.extend(w)
-        #add documents in the corpus
+        #ajouter des documents dans le corpus
         documents.append((w, intent['tag']))
 
-        # add to our classes list
+        # ajouter à notre liste de classes
         if intent['tag'] not in classes:
             classes.append(intent['tag'])
 
-# lemmaztize and lower each word and remove duplicates
-words = [lemmatizer.lemmatize(w.lower()) for w in words if w not in ignore_words]
+# lemmaztize et abaisser chaque mot et supprimer les doublons
+words = [
+            lemmatizer.lemmatize(w.lower()) 
+            for w in words if w not in ignore_words
+        ]
 words = sorted(list(set(words)))
-# sort classes
+# trier les classes
 classes = sorted(list(set(classes)))
-# documents = combination between patterns and intents
+# documents = combinaison de motifs et d’intentions
 print (len(documents), "documents")
-# classes = intents
+# classes = intentions
 print (len(classes), "classes", classes)
-# words = all words, vocabulary
+# words = tous les mots, vocabulaire
 print (len(words), "unique lemmatized words", words)
 
 
 pickle.dump(words,open('texts.pkl','wb'))
 pickle.dump(classes,open('labels.pkl','wb'))
 
-# create our training data
+# créer nos données d'entraînement
 training = []
-# create an empty array for our output
+# créer un tableau vide pour notre sortie
 output_empty = [0] * len(classes)
-# training set, bag of words for each sentence
+
+# ensemble d'entraînement, sac de mots pour chaque phrase
 for doc in documents:
-    # initialize our bag of words
+    # initialiser notre sac de mots
     bag = []
-    # list of tokenized words for the pattern
+    # liste des mots tokenized pour le modèle
     pattern_words = doc[0]
-    # lemmatize each word - create base word, in attempt to represent related words
-    pattern_words = [lemmatizer.lemmatize(word.lower()) for word in pattern_words]
-    # create our bag of words array with 1, if word match found in current pattern
+    # lemmatiser chaque mot 
+    # - créer le mot de base, en essayant de représenter les mots associés
+    pattern_words = [
+        lemmatizer.lemmatize(word.lower()) for word in pattern_words
+    ]
+    # créer notre tableau de mots avec 1, 
+    # si la correspondance de mots se trouve dans le modèle actuel
     for w in words:
         bag.append(1) if w in pattern_words else bag.append(0)
     
-    # output is a '0' for each tag and '1' for current tag (for each pattern)
+    # la sortie est un '0' pour chaque balise 
+    # et '1' pour la balise courante (pour chaque motif)
     output_row = list(output_empty)
     output_row[classes.index(doc[1])] = 1
     
     training.append([bag, output_row])
-# shuffle our features and turn into np.array
+# mélanger nos caractéristiques et se transformer en np.array
 random.shuffle(training)
 training = np.array(training)
-# create train and test lists. X - patterns, Y - intents
+# créer des listes de trains et d’essais. X - motifs, Y - intentions
 train_x = list(training[:,0])
 train_y = list(training[:,1])
-print("Training data created")
+print("donnees d'entraînement crees")
 
 
-# Create model - 3 layers. First layer 128 neurons, second layer 64 neurons and 3rd output layer contains number of neurons
-# equal to number of intents to predict output intent with softmax
+# Créer un modèle - 3 couches. Première couche 128 neurones, 
+# deuxième couche 64 neurones et 3ème couche de sortie contient le nombre de neurones.
+# égale au nombre d’intentions pour prédire l’intention de sortie avec softmax
 model = Sequential()
 model.add(Dense(128, input_shape=(len(train_x[0]),), activation='relu'))
 model.add(Dropout(0.5))
@@ -86,12 +96,13 @@ model.add(Dense(64, activation='relu'))
 model.add(Dropout(0.5))
 model.add(Dense(len(train_y[0]), activation='softmax'))
 
-# Compile model. Stochastic gradient descent with Nesterov accelerated gradient gives good results for this model
+# Compiler le modèle. La descente en gradient stochastique 
+# avec gradient accéléré Nesterov donne de bons résultats pour ce modèle
 sgd = SGD(lr=0.01, decay=1e-6, momentum=0.9, nesterov=True)
 model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
 
-#fitting and saving the model 
+# montage et sauvegarde du modèle 
 hist = model.fit(np.array(train_x), np.array(train_y), epochs=200, batch_size=5, verbose=1)
 model.save('model.h5', hist)
 
-print("model created")
+print("modele cree")

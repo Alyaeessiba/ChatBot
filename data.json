@@ -6,18 +6,35 @@
     "context": [""]
     },
     {"tag": "bonjour",
-     "patterns": ["Comment ca va ?","bonjour", "salut", "hello","cv","hi","bjr","slt","Hi there", "How are you", "Is anyone there?","Hey","Hola", "Hello", "Good day","start"],
+     "patterns": [
+        "Comment ca va ?","bonjour", "salut", "hello",
+        "cv","hi","bjr","slt","Hi there", "How are you", 
+        "Is anyone there?","Hey","Hola", "Hello", "Good day","start"
+      ],
      "responses": ["Bonjour, bienvenu a notre plateforme d'apprentissage, comment puis-je vous aider ?"],
      "context": [""]
     },
     {"tag": "goodbye",
-     "patterns": ["Au revoir", "Bonne journee", "a bientot", "Je dois partir", "a la prochaine","quitter", "quitte","bye","by","quit","Bye", "See you later", "Goodbye", "Nice chatting to you, bye", "Till next time","Au revoir", "Bonne journee", "a bientot", "a la prochaine"],
+     "patterns": [
+        "Au revoir", "Bonne journee", "a bientot", "Je dois partir", 
+        "a la prochaine","quitter", "quitte","bye","by","quit","Bye", 
+        "See you later", "Goodbye", "Nice chatting to you, bye", 
+        "Till next time","Au revoir", "Bonne journee", "a bientot", "a la prochaine"
+      ],
      "responses": ["Merci de votre visite","Au revoir", "Bonne journee", "a bientot", "a la prochaine"],
      "context": [""]
     },
     {"tag": "thanks",
-     "patterns": ["Tu as ete tres utile", "Je te suis reconnaissant", "merci", "Merci","thanx","thank you","thx","bien","c'est parfait","Thanks", "Thank you", "That's helpful", "Awesome, thanks", "Thanks for helping me","C'est gentil", "Je suis reconnaissant(e)", "Merci beaucoup"],
-     "responses": ["Je suis ravi d'avoir pu t'aider ! N'hesite pas si tu as besoin de plus d'assistance.","Pas de soucis, c'est mon travail."],
+     "patterns": [
+        "Tu as ete tres utile", "Je te suis reconnaissant", "merci", 
+        "thanx","thank you","thx","bien","c'est parfait","Thanks", 
+        "Thank you", "That's helpful", "Awesome, thanks", "Thanks for helping me",
+        "C'est gentil", "Je suis reconnaissant(e)", "Merci beaucoup"
+      ],
+     "responses": [
+        "Je suis ravi d'avoir pu t'aider ! N'hesite pas si tu as besoin de plus d'assistance.",
+        "Pas de soucis, c'est mon travail."
+      ],
      "context": [""]
     },
     {"tag": "apologies",
